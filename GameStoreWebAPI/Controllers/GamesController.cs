@@ -90,6 +90,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Games
+        [HttpPost]
+        [ActionName("insertGame")]
         [ResponseType(typeof(GameDTO))]
         public async Task<IHttpActionResult> PostGame(Game game)
         {
@@ -105,6 +107,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Games/5
+        [HttpDelete]
+        [ActionName("deleteGame")]
         [ResponseType(typeof(GameDTO))]
         public async Task<IHttpActionResult> DeleteGame(int id)
         {

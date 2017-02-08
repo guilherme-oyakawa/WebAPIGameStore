@@ -165,6 +165,7 @@
     <Content Include="app\controller\genre-controller.js" />
     <Content Include="app\controller\home-controller.js" />
     <Content Include="app\controller\publisher-controller.js" />
+    <Content Include="app\services\client-service.js" />
     <Content Include="app\services\copy-service.js" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -246,12 +247,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controller\copy-controller.js" />
+    <Content Include="app\services\fee-service.js" />
+    <Content Include="app\services\game-service.js" />
     <Content Include="app\services\genre-service.js" />
     <Content Include="app\services\publisher-service.js" />
+    <Content Include="app\services\rental-service.js" />
+    <Content Include="app\view\clients.html" />
+    <Content Include="app\view\fees.html" />
+    <Content Include="app\view\games.html" />
     <Content Include="app\view\genres.html" />
     <Content Include="app\view\home.html" />
     <Content Include="app\view\copies.html" />
     <Content Include="app\view\publishers.html" />
+    <Content Include="app\view\rentals.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

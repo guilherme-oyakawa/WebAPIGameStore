@@ -1,4 +1,3 @@
-c:\users\guilherme.masao\documents\visual studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.csprojResolveAssemblyReference.cache
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\ApplicationInsights.config
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\roslyn\csc.exe
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
