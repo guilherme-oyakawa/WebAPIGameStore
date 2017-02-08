@@ -25,6 +25,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Fees
+        [HttpGet]
+        [ActionName("getFees")]
         public IEnumerable<FeeDTO> GetFees()
         {
             var query = from f in rep.GetFees()
@@ -33,6 +35,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Fees/5
+        [HttpGet]
+        [ActionName("getFee")]
         [ResponseType(typeof(FeeDTO))]
         public async Task<IHttpActionResult> GetFee(int id)
         {
@@ -45,6 +49,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Fees/5
+        [HttpPut]
+        [ActionName("editFee")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutFee(int id, Fee fee)
         {
@@ -81,6 +87,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Fees
+        [HttpPost]
+        [ActionName("insertFee")]
         [ResponseType(typeof(FeeDTO))]
         public async Task<IHttpActionResult> PostFee(Fee fee)
         {
@@ -95,6 +103,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Fees/5
+        [HttpDelete]
+        [ActionName("deleteFee")]
         [ResponseType(typeof(FeeDTO))]
         public async Task<IHttpActionResult> DeleteFee(int id)
         {

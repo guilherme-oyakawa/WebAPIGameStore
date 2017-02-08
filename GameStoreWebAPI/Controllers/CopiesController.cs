@@ -20,7 +20,6 @@ namespace GameStoreWebAPI.Controllers
     public class CopiesController : ApiController
     {
         private ICopyRepository rep;
-        //private StoreContext db = new StoreContext();
 
         public CopiesController() {
             this.rep = new CopyRepository(new StoreContext());
@@ -67,7 +66,6 @@ namespace GameStoreWebAPI.Controllers
             }
 
             rep.UpdateCopy(copy);
-            //db.Entry(copy).State = EntityState.Modified;
 
             try
             {

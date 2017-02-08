@@ -26,6 +26,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Rentals
+        [HttpGet]
+        [ActionName("getRentals")]
         public IEnumerable<RentalDTO> GetRentals()
         {
             var query = from r in rep.GetRentals()
@@ -34,6 +36,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Rentals/5
+        [HttpGet]
+        [ActionName("getRental")]
         [ResponseType(typeof(RentalDTO))]
         public async Task<IHttpActionResult> GetRental(int id)
         {
@@ -46,6 +50,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Rentals/5
+        [HttpPut]
+        [ActionName("editRental")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutRental(int id, Rental rental)
         {
@@ -82,6 +88,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Rentals
+        [HttpPost]
+        [ActionName("insertRental")]
         [ResponseType(typeof(RentalDTO))]
         public async Task<IHttpActionResult> PostRental(Rental rental)
         {
@@ -96,6 +104,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Rentals/5
+        [HttpDelete]
+        [ActionName("deleteRental")]
         [ResponseType(typeof(RentalDTO))]
         public async Task<IHttpActionResult> DeleteRental(int id)
         {

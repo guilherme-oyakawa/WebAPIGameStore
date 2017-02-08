@@ -46,7 +46,8 @@ namespace GameStoreWebAPI.Controllers
 
             return Ok(publisher);
         }
-
+        /*
+        //PUBLISHERS ARE NOT EDITABLE
         // PUT: api/Publishers/5
         [HttpPut]
         [ActionName("editPublisher")]
@@ -84,6 +85,7 @@ namespace GameStoreWebAPI.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        */
 
         // POST: api/Publishers
         [HttpPost]

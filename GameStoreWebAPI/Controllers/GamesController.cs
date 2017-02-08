@@ -27,6 +27,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Games
+        [HttpGet]
+        [ActionName("getGames")]
         public IEnumerable<GameDTO> GetGames()
         {
             var query = from g in rep.GetGames()
@@ -35,6 +37,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Games/5
+        [HttpGet]
+        [ActionName("getGame")]
         [ResponseType(typeof(GameDTO))]
         public async Task<IHttpActionResult> GetGame(int id)
         {
@@ -48,6 +52,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Games/5
+        [HttpPut]
+        [ActionName("editGame")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGame(int id, Game game)
         {

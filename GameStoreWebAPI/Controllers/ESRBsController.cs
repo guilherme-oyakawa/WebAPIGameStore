@@ -19,12 +19,16 @@ namespace GameStoreWebAPI.Controllers
         private StoreContext db = new StoreContext();
 
         // GET: api/ESRBs
+        [HttpGet]
+        [ActionName("getRatings")]
         public IQueryable<ESRB> GetRatings()
         {
             return db.Ratings;
         }
 
         // GET: api/ESRBs/5
+        [HttpGet]
+        [ActionName("getRating")]
         [ResponseType(typeof(ESRB))]
         public async Task<IHttpActionResult> GetESRB(int id)
         {
@@ -37,7 +41,11 @@ namespace GameStoreWebAPI.Controllers
             return Ok(eSRB);
         }
 
+        /* //RATINGS ARE NOT EDITABLE
+
         // PUT: api/ESRBs/5
+        [HttpPut]
+        [ActionName("editRating")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutESRB(int id, ESRB eSRB)
         {
@@ -73,6 +81,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/ESRBs
+        [HttpPost]
+        [ActionName("insertRating")]
         [ResponseType(typeof(ESRB))]
         public async Task<IHttpActionResult> PostESRB(ESRB eSRB)
         {
@@ -88,6 +98,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/ESRBs/5
+        [HttpDelete]
+        [ActionName("deleteRating")]
         [ResponseType(typeof(ESRB))]
         public async Task<IHttpActionResult> DeleteESRB(int id)
         {
@@ -102,6 +114,8 @@ namespace GameStoreWebAPI.Controllers
 
             return Ok(eSRB);
         }
+
+        */
 
         protected override void Dispose(bool disposing)
         {

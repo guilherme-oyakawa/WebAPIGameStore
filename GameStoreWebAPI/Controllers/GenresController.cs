@@ -46,7 +46,8 @@ namespace GameStoreWebAPI.Controllers
 
             return Ok(genre);
         }
-
+        /*
+        //GENRES ARE NOT EDITABLE
         // PUT: api/Genres/5
         [HttpPut]
         [ActionName("editGenre")]
@@ -84,6 +85,7 @@ namespace GameStoreWebAPI.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        */
 
         // POST: api/Genres
         [HttpPut]
