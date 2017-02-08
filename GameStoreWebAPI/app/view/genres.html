@@ -1,0 +1,14 @@
+﻿<div ng-app="myApp" ng-controller="listGenres">
+    <p><a class="btn btn-info" href="./#/">Back to Menu &raquo;</a></p>
+    <table class="table">
+        <tr>
+            <th>
+                Genre
+            </th>
+        </tr>
+
+        <tr ng-repeat="g in genres | orderBy: 'Name'">
+            <td>{{g.Name}}</td>
+        </tr>
+    </table>
+</div>

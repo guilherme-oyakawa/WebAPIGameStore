@@ -1,0 +1,32 @@
+﻿<div ng-app="myApp" ng-controller="listCopies">
+    <p><a class="btn btn-info" href="./#/">Back to Menu &raquo;</a></p>
+    <!--<table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Copy #
+            </th>
+            <th>
+                Available
+            </th>
+        </tr>
+        
+        <tr ng-repeat="c in copies | orderBy: 'GameTitle'">
+            <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
+            <td>{{c.CopyId}}</td>
+            <td>{{c.Available}}</td>
+        </tr>
+    </table>-->
+    <table class="table">
+        <tr>
+            <th>Title</th>
+        </tr>
+
+        <tr ng-repeat="(key, value) in copies | groupBy: 'Gameid'">
+            <td>{{key}}</td>
+        </tr>
+    </table>
+
+</div>

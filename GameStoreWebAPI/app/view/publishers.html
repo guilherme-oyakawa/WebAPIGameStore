@@ -1,0 +1,14 @@
+﻿<div ng-app="myApp" ng-controller="listPublishers">
+    <p><a class="btn btn-info" href="./#/">Back to Menu &raquo;</a></p>
+    <table class="table">
+        <tr>
+            <th>
+                Publisher
+            </th>
+        </tr>
+
+        <tr ng-repeat="p in publishers | orderBy: 'Name'">
+            <td>{{p.Name}}</td>
+        </tr>
+    </table>
+</div>
