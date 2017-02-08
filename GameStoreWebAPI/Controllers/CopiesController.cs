@@ -27,6 +27,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Copies
+        [HttpGet]
+        [ActionName("getCopies")]
         public IEnumerable<CopyDTO> GetCopies()
         {
             var query = from c in rep.GetCopies()
@@ -35,6 +37,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Copies/5
+        [HttpGet]
+        [ActionName("getCopy")]
         [ResponseType(typeof(CopyDTO))]
         public async Task<IHttpActionResult> GetCopy(int id)
         {
@@ -47,6 +51,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Copies/5
+        [HttpPut]
+        [ActionName("editCopy")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutCopy(int id, Copy copy)
         {
@@ -83,6 +89,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Copies
+        [HttpPost]
+        [ActionName("insertCopy")]
         [ResponseType(typeof(CopyDTO))]
         public async Task<IHttpActionResult> PostCopy(Copy copy)
         {
@@ -98,6 +106,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Copies/5
+        [HttpDelete]
+        [ActionName("deleteCopy")]
         [ResponseType(typeof(CopyDTO))]
         public async Task<IHttpActionResult> DeleteCopy(int id)
         {

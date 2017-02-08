@@ -20,7 +20,8 @@ namespace GameStoreWebAPI.DAL.Repositories
 
         public IEnumerable<Genre> GetGenres()
         {
-            return context.Genres.ToList();
+            var teste =  context.Genres.ToList();
+            return teste;
         }
 
         public Genre GetGenreByID(int? GenreID)

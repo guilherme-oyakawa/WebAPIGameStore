@@ -25,12 +25,16 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Publishers
+        [HttpGet]
+        [ActionName("getPublishers")]
         public IEnumerable<Publisher> GetPublishers()
         {
             return rep.GetPublishers();
         }
 
         // GET: api/Publishers/5
+        [HttpGet]
+        [ActionName("getPublisher")]
         [ResponseType(typeof(Publisher))]
         public async Task<IHttpActionResult> GetPublisher(int id)
         {
@@ -44,6 +48,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Publishers/5
+        [HttpPut]
+        [ActionName("editPublisher")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPublisher(int id, Publisher publisher)
         {
@@ -80,6 +86,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Publishers
+        [HttpPost]
+        [ActionName("insertPublisher")]
         [ResponseType(typeof(Publisher))]
         public async Task<IHttpActionResult> PostPublisher(Publisher publisher)
         {
@@ -95,6 +103,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Publishers/5
+        [HttpDelete]
+        [ActionName("deletePublisher")]
         [ResponseType(typeof(Publisher))]
         public async Task<IHttpActionResult> DeletePublisher(int id)
         {

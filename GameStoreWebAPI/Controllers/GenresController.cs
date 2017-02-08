@@ -25,12 +25,16 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // GET: api/Genres
+        [HttpGet]
+        [ActionName("getGenres")]
         public IEnumerable<Genre> GetGenres()
         {
             return rep.GetGenres();
         }
 
         // GET: api/Genres/5
+        [HttpGet]
+        [ActionName("getGenre")]
         [ResponseType(typeof(Genre))]
         public async Task<IHttpActionResult> GetGenre(int id)
         {
@@ -44,6 +48,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Genres/5
+        [HttpPut]
+        [ActionName("editGenre")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGenre(int id, Genre genre)
         {
@@ -80,6 +86,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // POST: api/Genres
+        [HttpPut]
+        [ActionName("insertGenre")]
         [ResponseType(typeof(Genre))]
         public async Task<IHttpActionResult> PostGenre(Genre genre)
         {
@@ -95,6 +103,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Genres/5
+        [HttpDelete]
+        [ActionName("deleteGenre")]
         [ResponseType(typeof(Genre))]
         public async Task<IHttpActionResult> DeleteGenre(int id)
         {

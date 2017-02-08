@@ -26,6 +26,8 @@ namespace GameStoreWebAPI.Controllers
         //private StoreContext db = new StoreContext();
 
         // GET: api/Clients
+        [HttpGet]
+        [ActionName("getClients")]
         public IEnumerable<ClientDTO> GetClients() {
             var query = from c in rep.GetActiveClients()
                         select c.toDTO();
@@ -34,8 +36,9 @@ namespace GameStoreWebAPI.Controllers
 
 
         // GET: api/Clients/5
+        [HttpGet]
         [ResponseType(typeof(ClientDTO))]
-        [ActionName("getClientID")]
+        [ActionName("getClient")]
         public async Task<IHttpActionResult> GetClient(int id) {
             var client = await rep.GetClientAsync(id);
             if (client == null) {
@@ -46,6 +49,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // PUT: api/Clients/5
+        [HttpPut]
+        [ActionName("editClient")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutClient(int id, Client client) {
             if (!ModelState.IsValid) {
@@ -74,6 +79,7 @@ namespace GameStoreWebAPI.Controllers
 
         // POST: api/Clients
         [HttpPost]
+        [ActionName("insertClient")]
         public async Task<IHttpActionResult> PostClient(Client client)
         {
             if (!ModelState.IsValid)
@@ -88,6 +94,8 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Clients/5
+        [HttpDelete]
+        [ActionName("deleteClient")]
         [ResponseType(typeof(ClientDTO))]
         public async Task<IHttpActionResult> DeleteClient(int id)
         {
