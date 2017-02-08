@@ -28,7 +28,6 @@ namespace GameStoreWebAPI.Controllers
         // GET: api/Clients
         public IEnumerable<ClientDTO> GetClients() {
             var query = from c in rep.GetActiveClients()
-                        where c.Active == true
                         select c.toDTO();
             return query;
         }
@@ -36,6 +35,7 @@ namespace GameStoreWebAPI.Controllers
 
         // GET: api/Clients/5
         [ResponseType(typeof(ClientDTO))]
+        [ActionName("getClientID")]
         public async Task<IHttpActionResult> GetClient(int id) {
             var client = await rep.GetClientAsync(id);
             if (client == null) {

@@ -160,6 +160,12 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.module.js" />
+    <Content Include="app\app.router.js" />
+    <Content Include="app\controller\genre-controller.js" />
+    <Content Include="app\controller\home-controller.js" />
+    <Content Include="app\controller\publisher-controller.js" />
+    <Content Include="app\services\copy-service.js" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -239,6 +245,13 @@
     <Compile Include="ViewModels\TopRents.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controller\copy-controller.js" />
+    <Content Include="app\services\genre-service.js" />
+    <Content Include="app\services\publisher-service.js" />
+    <Content Include="app\view\genres.html" />
+    <Content Include="app\view\home.html" />
+    <Content Include="app\view\copies.html" />
+    <Content Include="app\view\publishers.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -275,7 +288,11 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Views\Clients\index.html" />
+    <Content Include="Templates\listClients.htm" />
+    <Content Include="Templates\listCopies.htm" />
+    <Content Include="Templates\listFees.htm" />
+    <Content Include="Templates\listGames.htm" />
+    <Content Include="Templates\listRentals.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
