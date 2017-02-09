@@ -38,11 +38,11 @@ namespace GameStoreWebAPI.Models
 
         public ClientDTO toDTO() {
             ClientDTO dto = new ClientDTO() {
-                id = this.ClientID,
-                fmname = this.FirstMidName,
-                lname = this.LastName,
-                birth = this.BirthDate,
-                active = this.Active
+                ClientID = this.ClientID,
+                FirstMidName = this.FirstMidName,
+                LastName = this.LastName,
+                BirthDate = this.BirthDate,
+                Active = this.Active
             };
 
             return dto;

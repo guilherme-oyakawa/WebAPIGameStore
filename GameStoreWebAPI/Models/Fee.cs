@@ -28,7 +28,7 @@ namespace GameStoreWebAPI.Models
             FeeDTO dto = new FeeDTO() {
                 FeeID = this.FeeID,
                 Value = this.Value,
-                paid = this.Paid,
+                Paid = this.Paid,
 
                 RentalID = this.RentalID,
                 CopyID = this.Rental.CopyID,

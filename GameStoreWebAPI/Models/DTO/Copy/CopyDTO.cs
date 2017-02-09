@@ -6,15 +6,15 @@ using System.Web;
 namespace GameStoreWebAPI.Models.DTO.Copy {
     public class CopyDTO {
         public bool Available;
-        public int CopyId;
-        public int Gameid;
+        public int CopyID;
+        public int GameID;
         public string GameTitle;
         public int GameYear;
 
-        public int PublisherId;
+        public int PublisherID;
         public string PublisherName;
 
-        public int GenreId;
+        public int GenreID;
         public string GenreName;
 
     }

@@ -5,10 +5,10 @@ using System.Web;
 
 namespace GameStoreWebAPI.Models.DTO.Client {
     public class ClientDTO {
-        public int id;
-        public string fmname;
-        public string lname;
-        public DateTime birth;
-        public bool active;
+        public int ClientID;
+        public string FirstMidName;
+        public string LastName;
+        public DateTime BirthDate;
+        public bool Active;
     }
 }

@@ -50,19 +50,19 @@ namespace GameStoreWebAPI.Models
 
         public GameDTO toDTO() {
             GameDTO dto = new GameDTO() {
-                GameId = this.GameID,
+                GameID = this.GameID,
                 Title = this.Title,
                 Year = this.Year.Year,
                 Description = this.Description,
                 Value = this.Value,
 
-                GenreId = this.GenreID,
+                GenreID = this.GenreID,
                 GenreName = this.Genre.Name,
 
-                PublisherId = this.PublisherID,
+                PublisherID = this.PublisherID,
                 PublisherName = this.Publisher.Name,
 
-                RatingId = this.ESRBID,
+                RatingID = this.ESRBID,
                 RatingDescription = this.ESRB.Description
             };
             return dto;

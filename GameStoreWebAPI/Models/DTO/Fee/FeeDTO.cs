@@ -7,7 +7,7 @@ namespace GameStoreWebAPI.Models.DTO.Fee {
     public class FeeDTO {
         public int FeeID;
         public decimal Value;
-        public bool paid;
+        public bool Paid;
 
         public int RentalID;
         public int CopyID;

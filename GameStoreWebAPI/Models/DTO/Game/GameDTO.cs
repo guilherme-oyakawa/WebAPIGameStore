@@ -5,19 +5,19 @@ using System.Web;
 
 namespace GameStoreWebAPI.Models.DTO.Game {
     public class GameDTO {
-        public int GameId;
+        public int GameID;
         public string Title;
         public int Year;
         public string Description;
         public decimal Value;
 
-        public int GenreId;
+        public int GenreID;
         public string GenreName;
 
-        public int PublisherId;
+        public int PublisherID;
         public string PublisherName;
 
-        public int RatingId;
+        public int RatingID;
         public string RatingDescription;
     }
 }

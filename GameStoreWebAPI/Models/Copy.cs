@@ -49,16 +49,16 @@ namespace GameStoreWebAPI.Models
         public CopyDTO toDTO() {
             CopyDTO dto = new CopyDTO() {
                 Available = this.Available,
-                CopyId = this.CopyID,
-                Gameid = this.GameID,
+                CopyID = this.CopyID,
+                GameID = this.GameID,
                 GameTitle = this.Game.Title,
                 GameYear = this.Game.Year.Year,
 
 
-                GenreId = this.Game.GenreID,
+                GenreID = this.Game.GenreID,
                 GenreName = this.Game.Genre.Name,
 
-                PublisherId = this.Game.PublisherID,
+                PublisherID = this.Game.PublisherID,
                 PublisherName = this.Game.Publisher.Name
             };
             return dto;

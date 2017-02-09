@@ -88,7 +88,7 @@ namespace GameStoreWebAPI.Controllers
         */
 
         // POST: api/Genres
-        [HttpPut]
+        [HttpPost]
         [ActionName("insertGenre")]
         [ResponseType(typeof(Genre))]
         public async Task<IHttpActionResult> PostGenre(Genre genre)
