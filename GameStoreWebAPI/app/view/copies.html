@@ -13,6 +13,11 @@
             </th>
         </tr>
 
+        <!--<tr ng-repeat="(key, value) in copies | groupBy: 'CopyID'">
+            <td>{{key}}</td>
+        </tr>-->
+        
+        
         <tr ng-repeat="c in copies | orderBy: 'GameTitle'">
             <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
             <td>{{c.CopyID}}</td>

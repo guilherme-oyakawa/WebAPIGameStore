@@ -60,4 +60,3 @@ C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\G
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\Antlr3.Runtime.pdb
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.dll
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.pdb
-C:\Users\guilherme.masao\documents\visual studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.csprojResolveAssemblyReference.cache

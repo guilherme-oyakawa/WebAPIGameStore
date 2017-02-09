@@ -35,6 +35,24 @@ namespace GameStoreWebAPI.Controllers
             return query;
         }
 
+        // GET: api/Rentals
+        [HttpGet]
+        [ActionName("getRentals")]
+        public IEnumerable<RentalDTO> CurrentRentals() {
+            var query = from r in rep.GetCurrentRentals()
+                        select r.toDTO();
+            return query;
+        }
+
+        // GET: api/Rentals
+        [HttpGet]
+        [ActionName("getRentals")]
+        public IEnumerable<RentalDTO> PastRentals() {
+            var query = from r in rep.GetReturnedRentals()
+                        select r.toDTO();
+            return query;
+        }
+
         // GET: api/Rentals/5
         [HttpGet]
         [ActionName("getRental")]
