@@ -56,7 +56,7 @@ app.controller('insertCopy', function ($scope, CopyService) {
     var insertCopy = function ($scope) {
         CopyService.save(action, copy,
             function (retorno) {
-                $scope.copyAdded = retorno;
+                $scope.copyUpdated = retorno;
             },
             function (erro) {
                 console.log(erro);

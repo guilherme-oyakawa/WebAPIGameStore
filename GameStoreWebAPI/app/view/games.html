@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div ng-app="myApp" ng-controller="listGames">
+    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
+    
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Value</th>
+        </tr>
 
-</body>
-</html>
+        <tr ng-repeat="g in games">
+            <td>{{g.Title}}</td>
+            <td>{{g.PublisherName}}</td>
+            <td>{{g.Year}}</td>
+            <td>{{g.RatingDescription}}</td>
+            <td>{{g.Value}}</td>
+        </tr>
+    </table>
+
+</div>

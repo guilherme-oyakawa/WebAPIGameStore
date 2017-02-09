@@ -15,8 +15,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     -->
+
+    <base href="/" />
+    <script type="text/javascript" src="~/app/app.module.js"></script>
+    <script type="text/javascript" src="~/app/app.router.js"></script>
+    <!--services-->
+
+    <script type="text/javascript" src="~/app/services/copy-service.js"></script>
+    <script type="text/javascript" src="~/app/services/genre-service.js"></script>
+    <script type="text/javascript" src="~/app/services/publisher-service.js"></script>
+    <script type="text/javascript" src="~/app/services/client-service.js"></script>
+    <script type="text/javascript" src="~/app/services/game-service.js"></script>
+    <script type="text/javascript" src="~/app/services/rental-service.js"></script>
+    <script type="text/javascript" src="~/app/services/fee-service.js"></script>
+
+    <!--controllers-->
+
+    <script type="text/javascript" src="~/app/controller/home-controller.js"></script>
+    <script type="text/javascript" src="~/app/controller/copy-controller.js"></script>
+    <script type="text/javascript" src="~/app/controller/genre-controller.js"></script>
+    <script type="text/javascript" src="~/app/controller/publisher-controller.js"></script>
+    <script type="text/javascript" vsrc="~/app/controller/game-controller.js"></script>
+
+
+
 </head>
-<body>
+<body ng-app="myApp" ng-controller="homeController">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,13 +53,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="clients">Clients</a></li>
+                    <li><a ui-sref="games">Games</a></li>
+                    <li><a ui-sref="copies">Copies</a></li>
+                    <li><a ui-sref="rentals">Rentals</a></li>
+                    <li><a ui-sref="fees">Fees</a></li>
+                    <!--
                     <li><a href="../#/Clients">Clients</a></li>
                     <li><a href="../#/Games">Games</a></li>
                     <li><a href="../#/Copies">Copies</a></li>
                     <li><a href="../#/Rentals">Rentals</a></li>
                     <li><a href="../#/Fees">Fees</a></li>
+                    -->
                 </ul>
             </div>
         </div>

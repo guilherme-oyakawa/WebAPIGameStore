@@ -1,10 +1,26 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div ng-app="myApp" ng-controller="listRentals">
+    <p>Copies:</p>
 
-</body>
-</html>
+    <table class="table">
+        <tr>
+            <th>Rental #</th>
+            <th>Title</th>
+            <th>Client</th>
+            <th>Lent on</th>
+            <th>Due Date</th>
+            <th>Returned on</th>
+            <th>Price</th>
+        </tr>
+
+        <tr ng-repeat="r in rentals">
+            <td>{{r.RentalID}}</td>
+            <td>{{r.GameTitle}}</td>
+            <td>{{r.ClientName}}</td>
+            <td>{{r.LentOn}}</td>
+            <td>{{r.DueDate}}</td>
+            <td>{{r.ReturnedOn}}</td>
+            <td>{{r.Price}}</td>
+        </tr>
+
+    </table>
+</div>
