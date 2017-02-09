@@ -50,7 +50,7 @@ namespace GameStoreWebAPI.Controllers
         //PUBLISHERS ARE NOT EDITABLE
         // PUT: api/Publishers/5
         [HttpPut]
-        [ActionName("editPublisher")]
+        [ActionName("updatePublisher")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutPublisher(int id, Publisher publisher)
         {

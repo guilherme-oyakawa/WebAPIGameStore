@@ -51,7 +51,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/Copies/5
         [HttpPut]
-        [ActionName("editCopy")]
+        [ActionName("updateCopy")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutCopy(int id, Copy copy)
         {

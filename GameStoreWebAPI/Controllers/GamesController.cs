@@ -53,7 +53,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/Games/5
         [HttpPut]
-        [ActionName("editGame")]
+        [ActionName("updateGame")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGame(int id, Game game)
         {

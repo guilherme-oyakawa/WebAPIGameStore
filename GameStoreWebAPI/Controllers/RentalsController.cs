@@ -51,7 +51,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/Rentals/5
         [HttpPut]
-        [ActionName("editRental")]
+        [ActionName("updateRental")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutRental(int id, Rental rental)
         {

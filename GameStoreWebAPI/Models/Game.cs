@@ -52,7 +52,7 @@ namespace GameStoreWebAPI.Models
             GameDTO dto = new GameDTO() {
                 GameID = this.GameID,
                 Title = this.Title,
-                Year = this.Year.Year,
+                Year = this.Year,
                 Description = this.Description,
                 Value = this.Value,
 

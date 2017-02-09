@@ -10,10 +10,10 @@
             <th>Value</th>
         </tr>
 
-        <tr ng-repeat="g in games">
+        <tr ng-repeat="g in games |orderBy: 'Title'">
             <td>{{g.Title}}</td>
             <td>{{g.PublisherName}}</td>
-            <td>{{g.Year}}</td>
+            <td>{{g.Year | date:'yyyy'}}</td>
             <td>{{g.RatingDescription}}</td>
             <td>{{g.Value}}</td>
         </tr>

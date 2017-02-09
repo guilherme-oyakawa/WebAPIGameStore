@@ -26,9 +26,9 @@ app.controller('getCopy', function ($scope, copyService) {
     };
 });
 
-app.controller('updateCopy', function ($scope, CopyService) {
+app.controller('updateCopy', function ($scope, copyService) {
     var action = {
-        action: "editCopy",
+        action: "updateCopy",
         id: $scope.CopyID
     };
     var copy = {
@@ -36,7 +36,7 @@ app.controller('updateCopy', function ($scope, CopyService) {
         GameID: $scope.GameID
     };
     var insertCopy = function ($scope) {
-        CopyService.update(action, copy,
+        copyService.update(action, copy,
             function (retorno) {
                 $scope.copyAdded = retorno;
             },
@@ -47,14 +47,14 @@ app.controller('updateCopy', function ($scope, CopyService) {
 });
 
 
-app.controller('insertCopy', function ($scope, CopyService) {
+app.controller('insertCopy', function ($scope, copyService) {
     var action = { action: "insertCopy" };
     var copy = {
         Available: true,
         GameID: $scope.GameID
     };
     var insertCopy = function ($scope) {
-        CopyService.save(action, copy,
+        copyService.save(action, copy,
             function (retorno) {
                 $scope.copyUpdated = retorno;
             },
@@ -64,10 +64,10 @@ app.controller('insertCopy', function ($scope, CopyService) {
     };
 });
 
-app.controller('deleteCopy', function ($scope, CopyService) {
+app.controller('deleteCopy', function ($scope, copyService) {
     var action = { action: 'deleteCopy' };
     var deleteCopy = function ($scope) {
-        CopyService.remove(action, { id: $scope.CopyID },
+        copyService.remove(action, { id: $scope.CopyID },
         function (retorno) {
             $scope.copyDeleted = retorno;
         },

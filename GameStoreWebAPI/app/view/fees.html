@@ -1,1 +1,23 @@
-﻿<h1>Fees!</h1>
+﻿<div ng-app="myApp" ng-controller="listFees">
+    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
+    <table class="table">
+        <tr>
+            <th>Fee #</th>
+            <th>Client</th>
+            <th>Title</th>
+            <th>Rental #</th>
+            <th>Value</th>
+            <th>Paid</th>
+
+        </tr>
+
+        <tr ng-repeat="f in fees">
+            <td>{{f.FeeID}}</td>
+            <td>{{f.Client}}</td>
+            <td>{{f.Title}}</td>
+            <td>{{f.RentalID}}</td>
+            <td>{{f.Value}}</td>
+            <td>{{f.Paid}}</td>
+        </tr>
+    </table>
+</div>

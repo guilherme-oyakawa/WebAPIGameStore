@@ -26,7 +26,7 @@ app.controller('getGame', function ($scope, gameService) {
 
 app.controller('updateGame', function ($scope, CopyService) {
     var action = {
-        action: "editGame",
+        action: "updateGame",
         id: $scope.GameID
     };
     var game = {

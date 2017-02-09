@@ -7,7 +7,7 @@ namespace GameStoreWebAPI.Models.DTO.Game {
     public class GameDTO {
         public int GameID;
         public string Title;
-        public int Year;
+        public DateTime Year;
         public string Description;
         public decimal Value;
 

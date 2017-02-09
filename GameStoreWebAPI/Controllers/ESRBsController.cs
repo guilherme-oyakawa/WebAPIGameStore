@@ -45,7 +45,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/ESRBs/5
         [HttpPut]
-        [ActionName("editRating")]
+        [ActionName("updateRating")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutESRB(int id, ESRB eSRB)
         {

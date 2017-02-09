@@ -50,7 +50,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/Fees/5
         [HttpPut]
-        [ActionName("editFee")]
+        [ActionName("updateFee")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutFee(int id, Fee fee)
         {

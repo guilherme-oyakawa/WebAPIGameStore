@@ -1,1 +1,22 @@
-﻿<h1>Clients!</h1>
+﻿<div ng-app="myApp" ng-controller="listClients">
+    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
+    <table class="table">
+        <tr>
+            <th>
+                Full Name:
+            </th>
+            <th>
+                Birth Date:
+            </th>
+            <th>
+                Active:
+            </th>
+        </tr>
+
+        <tr ng-repeat="c in clients">
+            <td>{{c.FirstMidName}} {{c.LastName}}</td>
+            <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
+            <td>{{c.Active}}</td>
+        </tr>
+    </table>
+</div>

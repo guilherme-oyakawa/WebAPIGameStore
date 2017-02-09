@@ -50,7 +50,7 @@ namespace GameStoreWebAPI.Controllers
 
         // PUT: api/Clients/5
         [HttpPut]
-        [ActionName("editClient")]
+        [ActionName("updateClient")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutClient(int id, Client client) {
             if (!ModelState.IsValid) {

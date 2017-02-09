@@ -50,7 +50,7 @@ namespace GameStoreWebAPI.Controllers
         //GENRES ARE NOT EDITABLE
         // PUT: api/Genres/5
         [HttpPut]
-        [ActionName("editGenre")]
+        [ActionName("updateGenre")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutGenre(int id, Genre genre)
         {
