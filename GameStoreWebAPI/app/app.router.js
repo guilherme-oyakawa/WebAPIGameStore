@@ -16,10 +16,13 @@
             { templateUrl: "../app/view/fees.html" })
         .when('../', { templateUrl: "../app/view/home.html" });
 });*/
-app.config(function ($stateProvider) {
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/Home');
+
     var homeState = {
-        name: 'Home',
-        url: '/',
+        name: 'home',
+        url: '/Home',
         templateUrl: "../app/view/home.html"
     };
 
@@ -49,7 +52,7 @@ app.config(function ($stateProvider) {
 
     var clientsState = {
         name: 'clients',
-        url: '/clients',
+        url: '/Clients',
         templateUrl: "../app/view/clients.html"
     };
 
@@ -74,4 +77,4 @@ app.config(function ($stateProvider) {
     $stateProvider.state(publishersState);
     $stateProvider.state(genresState);
 
-})
+});

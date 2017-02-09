@@ -9,9 +9,12 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-resource.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    -->
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,12 +31,11 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Games", "Index", "Games")</li>
-                    <li>@Html.ActionLink("Copies", "Index", "Copies")</li>
-                    <li>@Html.ActionLink("Rentals", "Index", "Rentals")</li>
-                    <li>@Html.ActionLink("Fees", "Index", "Fees")</li>
+                    <li><a href="../#/Clients">Clients</a></li>
+                    <li><a href="../#/Games">Games</a></li>
+                    <li><a href="../#/Copies">Copies</a></li>
+                    <li><a href="../#/Rentals">Rentals</a></li>
+                    <li><a href="../#/Fees">Fees</a></li>
                 </ul>
             </div>
         </div>

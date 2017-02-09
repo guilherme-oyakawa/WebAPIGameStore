@@ -4,8 +4,6 @@
 <base href="/"/>
 <script type="text/javascript" src="~/app/app.module.js"></script>
 <script type="text/javascript" src="~/app/app.router.js"></script>
-<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
-
 <!--services-->
 
 <script type="text/javascript" src="~/app/services/copy-service.js"></script>
@@ -20,13 +18,16 @@
 <script type="text/javascript" src="~/app/controller/publisher-controller.js"></script>
 
 
-<div ng-app="myApp">
+<div ng-app="myApp" ng-controller="homeController">
+
 <div class="jumbotron">
     <h1 style="color:white">Game Rentals</h1>
     <p style="color:white">Rent games here!</p>
-    <p><a href="../Rentals/Create" class="btn btn-primary btn-lg">New Rental &raquo;</a></p>
-
-    <a href="../Home/About" class="btn btn-success btn-lrg">See our most popular titles &raquo;</a>
+    <p><a href="../#/Rentals" class="btn btn-primary btn-lg">New Rental &raquo;</a></p>
 </div>    
-    <div ng-view></div>
+
+    <ui-view></ui-view>
+
 </div>
+    
+
