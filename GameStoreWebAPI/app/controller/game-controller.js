@@ -11,36 +11,49 @@
         });
 });
 
-app.controller('getGame', function ($scope, gameService) {
+app.controller('getGame', function ($scope, gameService, $stateParams) {
     var action = { action: "getGame" };
-    var getGame = function ($scope) {
-        gameService.get(action, { id: $scope.GameID },
-            function (retorno) {
-                $scope.game = retorno;
-            },
-            function (erro) {
-                console.log(erro);
-            });
-    };
+    gameService.get(action, { id: $stateParams.id },
+        function (retorno) {
+            $scope.game = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
 });
 
-app.controller('updateGame', function ($scope, CopyService) {
+app.controller('updateGame', function ($scope, gameService) {
+
+    var game;
     var action = {
         action: "updateGame",
         id: $scope.GameID
     };
-    var game = {
-        GameID: $scope.GameID,
-        Title: $scope.Title,
-        Year: $scope.YearDate,
-        Description: $scope.Description,
-        Value: $scope.Value,
-        GenreID: $scope.GenreID,
-        PublisherID: $scope.PublisherID,
-        ESRBID: $scope.ESRBID
-    };
-    var insertCopy = function ($scope) {
-        CopyService.update(action, game,
+
+    /*
+    $scope.Title = 
+    $scope.YearDate = 
+    $scope.Description = 
+    $scope.Value = 
+    $scope.GenreID = 
+    $scope.PublisherID = 
+    $scope.ESRBID = 
+    */
+
+    var insertGame = function ($scope) {
+
+        game = {
+            GameID: $scope.GameID,
+            Title: $scope.Title,
+            Year: $scope.YearDate,
+            Description: $scope.Description,
+            Value: $scope.Value,
+            GenreID: $scope.GenreID,
+            PublisherID: $scope.PublisherID,
+            ESRBID: $scope.ESRBID
+        };
+
+        gameService.update(action, game,
             function (retorno) {
                 $scope.gameUpdated = retorno;
             },
@@ -49,6 +62,34 @@ app.controller('updateGame', function ($scope, CopyService) {
             });
     };
 });
+
+
+/* TEST UPDATE API FUNCTION
+
+app.controller('testUpdate', function ($scope, gameService) {
+    var action = {
+        action: "updateGame",
+        id: 4
+    };
+    var game = {
+        GameID: 4,
+        Description: "updated",
+        GenreID: 3,
+        PublisherID: 3,
+        ESRBID: 3,
+        Title: "ARMS",
+        Value: 49.99,
+        Year: "2017-05-16T00:00:00"
+    };
+    gameService.update(action, game,
+            function (retorno) {
+                $scope.gameUpdated = retorno;
+            },
+            function (erro) {
+                console.log(erro);
+            });
+});
+*/
 
 app.controller('insertGame', function ($scope, gameService) {
     var action = { action: "insertGame" };

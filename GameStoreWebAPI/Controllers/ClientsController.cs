@@ -109,6 +109,20 @@ namespace GameStoreWebAPI.Controllers
             return Ok(client.toDTO());
         }
 
+        [HttpDelete]
+        [ActionName("activateClient")]
+        [ResponseType(typeof(ClientDTO))]
+        public async Task<IHttpActionResult> Status(int id) {
+            Client client = await rep.GetClientAsync(id);
+            if (client == null) {
+                return NotFound();
+            }
+            rep.ActivateClient(id);
+            await rep.SaveAsync();
+            return Ok(client.toDTO());
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

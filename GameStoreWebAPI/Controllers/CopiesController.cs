@@ -49,8 +49,18 @@ namespace GameStoreWebAPI.Controllers
             return Ok(copy.toDTO());
         }
 
-        // PUT: api/Copies/5
-        [HttpPut]
+        [HttpGet]
+        [ActionName("getCopiesPerGame")]
+        [ResponseType(typeof(CopyDTO))]
+        public IEnumerable<CopyDTO> GetCopiesPerGame(int id)
+        {
+            var query = from c in rep.GetCopiesPerGame(id)
+                        select c.toDTO();
+            return query;
+        }
+
+    // PUT: api/Copies/5
+    [HttpPut]
         [ActionName("updateCopy")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutCopy(int id, Copy copy)

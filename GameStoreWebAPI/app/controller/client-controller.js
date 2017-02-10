@@ -24,6 +24,30 @@ app.controller('getClient', function ($scope, clientService) {
     };
 });
 
+app.controller('testGet', function ($scope, clientService) {
+    var action = { action: "getClient"};
+    clientService.get(action, { id:7 },
+            function (retorno) {
+                $scope.client = retorno;
+                console.log(retorno);
+            },
+            function (erro) {
+                console.log(erro);
+            });
+});
+
+app.controller('testDelete', function ($scope, clientService) {
+    var action = { action: 'deleteClient' };
+   clientService.remove(action, { id: 9},
+        function (retorno) {
+            $scope.clientDeleted = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+});
+
+
 app.controller('updateClient', function ($scope, clientService) {
     var action = {
         action: "updateClient",
@@ -75,6 +99,19 @@ app.controller('deleteClient', function ($scope, clientService) {
         clientService.remove(action, { id: $scope.ClientID },
         function (retorno) {
             $scope.clientDeleted = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+    };
+});
+
+app.controller('activateClient', function ($scope, clientService) {
+    var action = { action: 'activateClient' };
+    var deleteClient = function ($scope) {
+        clientService.update(action, { id: $scope.ClientID },
+        function (retorno) {
+            $scope.clientActivated = retorno;
         },
         function (erro) {
             console.log(erro);

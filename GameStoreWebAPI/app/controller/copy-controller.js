@@ -14,6 +14,24 @@
 
 });
 
+app.controller('listCopiesPerGame', function ($scope, copyService, $stateParams) {
+    var chaveBusca = {
+        action: "getCopiesPerGame",
+        id: $stateParams.id
+    };
+    copyService.query(chaveBusca,
+        //success
+        function (retorno) {
+            console.log("CopiesPerGame", retorno);
+            $scope.copies = retorno;
+        },
+        //error
+        function (erro) {
+            console.log(erro);
+        });
+
+});
+
 app.controller('getCopy', function ($scope, copyService) {
     var action = { action: "getCopy" };
     var getCopy = function ($scope) {
@@ -33,6 +51,7 @@ app.controller('updateCopy', function ($scope, copyService) {
         id: $scope.CopyID
     };
     var copy = {
+        CopyID: $scope.CopyID,
         Available: $scope.Available,
         GameID: $scope.GameID
     };

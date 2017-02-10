@@ -1,0 +1,21 @@
+﻿<p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
+<table class="table" ng-app="myApp" ng-controller="getGame">
+    <tr>
+        <th>Title</th>
+        <th>Publisher</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Suitable Age</th>
+        <th>Value</th>
+    </tr>
+
+    <tr>
+        <td>{{game.Title}}</td>
+        <td>{{game.Publisher.Name}}</td>
+        <td>{{game.Year}}</td>
+        <td>{{game.ESRB.Rating}}</td>
+        <td>{{game.ESRB.Age}}</td>
+        <td>{{game.Value | currency:"$":2}}</td>
+    </tr>
+
+</table>

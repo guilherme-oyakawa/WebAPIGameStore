@@ -18,7 +18,7 @@
             <td>{{r.LentOn | date:'dd/MM/yyyy'}}</td>
             <td>{{r.DueDate | date:'dd/MM/yyyy'}}</td>
             <td>{{r.ReturnedOn | date:'dd/MM/yyyy'}}</td>
-            <td>{{r.Price}}</td>
+            <td>{{r.Price | currency:"$":2}}</td>
         </tr>
 
     </table>

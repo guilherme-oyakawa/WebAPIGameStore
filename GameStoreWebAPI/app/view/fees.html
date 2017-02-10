@@ -16,7 +16,7 @@
             <td>{{f.Client}}</td>
             <td>{{f.Title}}</td>
             <td>{{f.RentalID}}</td>
-            <td>{{f.Value}}</td>
+            <td>{{f.Value | currency:"$":2}}</td>
             <td>{{f.Paid}}</td>
         </tr>
     </table>

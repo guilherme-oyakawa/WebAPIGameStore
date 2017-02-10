@@ -8,6 +8,7 @@
             <th>Year</th>
             <th>Rating</th>
             <th>Value</th>
+            <th>Actions</th>
         </tr>
 
         <tr ng-repeat="g in games |orderBy: 'Title'">
@@ -15,7 +16,15 @@
             <td>{{g.PublisherName}}</td>
             <td>{{g.Year | date:'yyyy'}}</td>
             <td>{{g.RatingDescription}}</td>
-            <td>{{g.Value}}</td>
+            <td>{{g.Value | currency:"$":2}}</td>
+            <td>
+                <!--<a class="btn btn-default" ui-sref="game({id: g.GameID})">Details</a>-->
+                <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})">Check Copies</a>
+                <a class="btn btn-default">Edit</a> <!--MODAL-->
+                <a class="btn btn-danger">Delete</a><!--MODAL-->
+            </td>
         </tr>
     </table>
 </div>
+
+<!--<h1 ng-app="myApp" ng-controller="testUpdate">{{gameUpdated}}</h1>-->

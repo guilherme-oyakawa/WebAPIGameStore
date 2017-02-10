@@ -1,4 +1,5 @@
-﻿<div ng-app="myApp" ng-controller="listCopies">
+﻿<p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
+<div ng-controller="listCopiesPerGame">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
@@ -13,15 +14,11 @@
             </th>
         </tr>
 
-        <!--<tr ng-repeat="(key, value) in copies | groupBy: 'CopyID'">
-            <td>{{key}}</td>
-        </tr>-->
-        
-        
         <tr ng-repeat="c in copies | orderBy: 'GameTitle'">
             <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
             <td>{{c.CopyID}}</td>
             <td>{{c.Available}}</td>
         </tr>
     </table>
+    <h2 ng-show="copies.length ==0"> No copies available!</h2>
 </div>

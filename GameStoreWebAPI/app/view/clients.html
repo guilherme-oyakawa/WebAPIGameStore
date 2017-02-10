@@ -3,20 +3,22 @@
     <table class="table">
         <tr>
             <th>
-                Full Name:
+                Full Name
             </th>
             <th>
-                Birth Date:
+                Birth Date
             </th>
-            <th>
-                Active:
-            </th>
+            <th>Active</th>
         </tr>
 
         <tr ng-repeat="c in clients">
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
-            <td>{{c.Active}}</td>
+            <td>
+                <a class="btn btn-default">Details</a>
+                <a class="btn btn-default">Edit</a>
+                <a class="btn btn-danger" ng-show="c.Active">Delete</a>
+            </td>
         </tr>
     </table>
 </div>
