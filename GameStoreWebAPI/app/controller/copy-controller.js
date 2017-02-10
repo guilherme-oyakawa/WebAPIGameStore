@@ -11,6 +11,7 @@
         function (erro) {
             console.log(erro);
         });
+
 });
 
 app.controller('getCopy', function ($scope, copyService) {
@@ -32,7 +33,7 @@ app.controller('updateCopy', function ($scope, copyService) {
         id: $scope.CopyID
     };
     var copy = {
-        Available: true,
+        Available: $scope.Available,
         GameID: $scope.GameID
     };
     var insertCopy = function ($scope) {
