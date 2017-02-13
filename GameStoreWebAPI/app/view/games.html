@@ -1,27 +1,38 @@
 ﻿<p><a ui-sref="newGame" class="btn btn-default">New Game</a></p>
 <div ng-app="myApp" ng-controller="listGames">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
-    
-    <table class="table">
-        <tr>
-            <th>Title</th>
-            <th>Publisher</th>
-            <th>Year</th>
-            <th>Rating</th>
-            <th>Value</th>
-            <th>Actions</th>
-        </tr>
-            <tr ng-repeat="g in games |orderBy: 'Title'">
+    <label>Search by Title:<input type="text" ng-model="search.Title" /></label>
+    <label>Search by Publisher:<input type="text" ng-model="search.PublisherName" /></label>
+    <label>Search by Genre:<input type="text" ng-model="search.GenreName" /></label>
+
+    <div infinite-scroll="increaseLimit()" infinite-scroll-distance='2' infinite-scroll-immediate-check="true">
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr ng-repeat="g in games | orderBy: 'Title' | filter:search | limitTo: Limit">
+
                 <td>{{g.Title}}</td>
                 <td>{{g.PublisherName}}</td>
+                <td>{{g.GenreName}}</td>
                 <td>{{g.Year | date:'yyyy'}}</td>
                 <td>{{g.RatingDescription}}</td>
                 <td>{{g.Value | currency:"$":2}}</td>
+
                 <td>
                     <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})">Check Copies</a>
                     <a class="btn btn-default" ui-sref="game({id: g.GameID})">Edit</a>
                     <a class="btn btn-danger" ng-click="deleteGame(g.GameID)">Delete</a><!--MODAL?-->
                 </td>
+
             </tr>
-</table>
+        </table>
+    </div>
 </div>

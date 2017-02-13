@@ -23,8 +23,15 @@
         function (erro) {
             console.log(erro);
         });
-    }
 
+    };
+
+    //Infinite Scroll
+    $scope.Limit = 5;
+    $scope.increaseLimit = function () {
+        $scope.Limit += 5;
+        console.log("increased limit to " + $scope.Limit);
+    };
 });
 
 app.controller('getGame', function ($scope, gameService, $stateParams) {

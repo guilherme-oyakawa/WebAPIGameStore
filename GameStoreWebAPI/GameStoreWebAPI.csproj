@@ -271,7 +271,6 @@
     <Content Include="app\services\rating-service.js" />
     <Content Include="app\services\rental-service.js" />
     <Content Include="app\view\clients.html" />
-    <Content Include="app\view\editGame.html" />
     <Content Include="app\view\fees.html" />
     <Content Include="app\view\game.html" />
     <Content Include="app\view\gameCopies.html" />

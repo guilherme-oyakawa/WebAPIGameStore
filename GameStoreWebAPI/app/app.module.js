@@ -8,3 +8,5 @@
         'infinite-scroll'
     ]
 );
+
+//app.value('THROTTLE_MILLISECONDS', 250);

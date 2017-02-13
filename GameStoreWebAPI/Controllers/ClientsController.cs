@@ -111,9 +111,9 @@ namespace GameStoreWebAPI.Controllers
         }
 
         // DELETE: api/Clients/5
-        [HttpDelete]
+        [HttpPut]
         [ActionName("deleteClient")]
-        [ResponseType(typeof(ClientDTO))]
+        [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> DeleteClient(int id)
         {
             Client client = await rep.GetClientAsync(id);
@@ -123,12 +123,12 @@ namespace GameStoreWebAPI.Controllers
             }
             rep.DeleteClient(id);
             await rep.SaveAsync();
-            return Ok(client.toDTO());
+            return Ok();
         }
 
-        [HttpDelete]
+        [HttpPut]
         [ActionName("activateClient")]
-        [ResponseType(typeof(ClientDTO))]
+        [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Status(int id) {
             Client client = await rep.GetClientAsync(id);
             if (client == null) {
@@ -136,7 +136,7 @@ namespace GameStoreWebAPI.Controllers
             }
             rep.ActivateClient(id);
             await rep.SaveAsync();
-            return Ok(client.toDTO());
+            return Ok();
         }
 
 

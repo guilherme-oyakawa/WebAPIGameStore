@@ -1,4 +1,4 @@
-﻿app.controller('listClients', function ($scope, clientService) {
+﻿app.controller('listClients', function ($scope, $state, clientService) {
     var action = {
         action: "getClients"
     };
@@ -9,6 +9,30 @@
         function (erro) {
             console.log(erro);
         });
+
+    $scope.Activate = function (id) {
+        action = { action: 'activateClient' };
+        clientService.update(action, { id: id },
+        function (retorno) {
+            $state.reload();
+        },
+        function (erro) {
+            console.log(erro);
+        });
+    };
+
+    $scope.Deactivate = function (id) {
+        action = { action: 'deleteClient' };
+        clientService.update(action, { id: id },
+        function (retorno) {
+            $state.reload();
+        },
+        function (erro) {
+            console.log(erro);
+        });
+    };
+
+
 });
 
 app.controller('getClient', function ($scope, clientService) {

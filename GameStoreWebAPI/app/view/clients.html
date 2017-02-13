@@ -8,17 +8,19 @@
             <th>
                 Birth Date
             </th>
-            <th>Active</th>
+            <th>
+                Actions
+            </th>
         </tr>
 
-        <tr ng-repeat="c in clients">
+        <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName']">
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
             <td>
                 <a class="btn btn-default">Details</a>
                 <a class="btn btn-default">Edit</a>
-                <a class="btn btn-danger" ng-show="c.Active">Deactivate</a>
-                <a class="btn btn-success" ng-show="!c.Active"> Activate </a>
+                <a class="btn btn-danger" ng-show="c.Active" ng-click="Deactivate(c.ClientID)">Deactivate</a>
+                <a class="btn btn-success" ng-show="!c.Active" ng-click="Activate(c.ClientID)"> Activate </a>
             </td>
         </tr>
     </table>
