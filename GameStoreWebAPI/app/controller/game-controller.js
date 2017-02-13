@@ -14,7 +14,7 @@
     $scope.Limit = 5;
     $scope.increaseLimit = function () {
         $scope.Limit += 5;
-        //console.log("increased limit to " + $scope.Limit);
+        console.log("increased limit to " + $scope.Limit);
     };
 
     //modal
@@ -27,7 +27,7 @@
 
         ModalService.showModal({
             templateUrl: "../app/view/modal/confirmDelete.html",
-            controller: 'modalController'
+            controller: 'modalController',
         }).then(function(modal) {
             modal.element.modal();
             modal.close.then(function(result) {
@@ -35,14 +35,13 @@
                     gameService.remove(action,
                     function (retorno) {
                         $scope.gameDeleted = retorno;
-                        toaster.pop('warning', "Delete", ("Game #" + id + " Deleted."));
-                        
-                    },
+                        toaster.pop('error', "Delete","Game Deleted.");
+                        },
                     function (erro) {
                         console.log(erro);
                     });
                 };
-                $timeout($state.reload, 1000);
+                $state.reload();
             });
         });
 

@@ -8,6 +8,7 @@
     <div infinite-scroll="increaseLimit()" infinite-scroll-distance='2' infinite-scroll-immediate-check="true">
         <table class="table">
             <tr>
+                <th>Game ID</th>
                 <th>Title</th>
                 <th>Publisher</th>
                 <th>Genre</th>
@@ -18,7 +19,7 @@
             </tr>
 
             <tr ng-repeat="g in games | orderBy: 'Title' | filter:search | limitTo: Limit">
-
+                <td>{{g.GameID}}</td>
                 <td>{{g.Title}}</td>
                 <td>{{g.PublisherName}}</td>
                 <td>{{g.GenreName}}</td>
@@ -27,11 +28,10 @@
                 <td>{{g.Value | currency:"$":2}}</td>
 
                 <td>
-                    <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})">Check Copies</a>
-                    <a class="btn btn-default" ui-sref="game({id: g.GameID})">Edit</a>
-                    <a class="btn btn-danger" ng-click="deleteGame(g.GameID)">Delete</a><!--MODAL?-->
+                    <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})"><i class="fa fa-info-circle" aria-hidden="true"></i>Check Copies</a>
+                    <a class="btn btn-default" ui-sref="game({id: g.GameID})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                    <a class="btn btn-danger" ng-click="deleteGame(g.GameID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
                 </td>
-
             </tr>
         </table>
     </div>
