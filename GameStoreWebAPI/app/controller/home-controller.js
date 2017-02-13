@@ -1,4 +1,4 @@
-﻿app.controller('homeController', function ($scope) {
+﻿app.controller('homeController', function (toaster, $scope) {
     console.log($scope);
 });
     

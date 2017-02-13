@@ -5,7 +5,9 @@
         'ui.router',
         'angular.filter',
         'angularModalService',
-        'infinite-scroll'
+        'infinite-scroll',
+        'toaster',
+        'ngAnimate',
     ]
 );
 

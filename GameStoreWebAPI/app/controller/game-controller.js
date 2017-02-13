@@ -1,4 +1,4 @@
-﻿app.controller('listGames', function ($scope, $state, gameService) {
+﻿app.controller('listGames', function ($scope, $state, $timeout, toaster, gameService, ModalService) {
     var action = {
         action: "getGames"
     };
@@ -10,28 +10,53 @@
             console.log(erro);
         });
 
+    //Infinite Scroll
+    $scope.Limit = 5;
+    $scope.increaseLimit = function () {
+        $scope.Limit += 5;
+        //console.log("increased limit to " + $scope.Limit);
+    };
+
+    //modal
+    $scope.confirmDelete = null;
     $scope.deleteGame = function (id) {
         action = {
             action: 'deleteGame',
             id: id
         };
-        gameService.remove(action,
+
+        ModalService.showModal({
+            templateUrl: "../app/view/modal/confirmDelete.html",
+            controller: 'modalController'
+        }).then(function(modal) {
+            modal.element.modal();
+            modal.close.then(function(result) {
+                if (result) {
+                    gameService.remove(action,
+                    function (retorno) {
+                        $scope.gameDeleted = retorno;
+                        toaster.pop('warning', "Delete", ("Game #" + id + " Deleted."));
+                        
+                    },
+                    function (erro) {
+                        console.log(erro);
+                    });
+                };
+                $timeout($state.reload, 1000);
+            });
+        });
+
+        /*gameService.remove(action,
         function (retorno) {
             $scope.gameDeleted = retorno;
-            $state.reload();
+            toaster.pop('warning', "Delete", ("Game #" + id + " Deleted."));
+            $timeout($state.reload, 1000);
         },
         function (erro) {
             console.log(erro);
-        });
-
+        });*/
     };
 
-    //Infinite Scroll
-    $scope.Limit = 5;
-    $scope.increaseLimit = function () {
-        $scope.Limit += 5;
-        console.log("increased limit to " + $scope.Limit);
-    };
 });
 
 app.controller('getGame', function ($scope, gameService, $stateParams) {
@@ -45,7 +70,7 @@ app.controller('getGame', function ($scope, gameService, $stateParams) {
         });
 });
 
-app.controller('updateGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService) {
+app.controller('updateGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService, toaster) {
 
     var game;
     var action = {action: "getGame"};
@@ -97,7 +122,7 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
             id: $stateParams.id
         };
         game = {
-            GameID: $stateParams.id,
+            GameID: $scope.GameID,
             Title: $scope.Title,
             Year: $scope.YearDate,
             Description: $scope.Description,
@@ -106,20 +131,20 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
             PublisherID: $scope.PublisherID,
             ESRBID: $scope.ESRBID
         };
-
         gameService.update(action, game,
             function (retorno) {
                 $scope.gameUpdated = retorno;
+                toaster.pop('warning', "Edit", ("Game #" + $scope.GameID + " Updated."));
                 $state.go('games');
+                
             },
             function (erro) {
                 console.log(erro);
             });
-        
     };
 });
 
-app.controller('insertGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService) {
+app.controller('insertGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService, toaster) {
     var action;
 
     $scope.Title = "Insert title here";
@@ -170,7 +195,7 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
         gameService.save(action, game,
             function (retorno) {
                 $scope.gameAdded = retorno;
-                console.log("Game Added", retorno);
+                toaster.pop('success', "Create", ("New game Created."));
                 $state.go('games');
             },
             function (erro) {

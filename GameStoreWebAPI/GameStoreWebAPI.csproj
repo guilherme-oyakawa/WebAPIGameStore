@@ -179,6 +179,7 @@
     <Content Include="app\controller\game-controller.js" />
     <Content Include="app\controller\genre-controller.js" />
     <Content Include="app\controller\home-controller.js" />
+    <Content Include="app\controller\modal-controller.js" />
     <Content Include="app\controller\publisher-controller.js" />
     <Content Include="app\controller\rental-controller.js" />
     <Content Include="app\services\client-service.js" />
@@ -278,6 +279,7 @@
     <Content Include="app\view\genres.html" />
     <Content Include="app\view\home.html" />
     <Content Include="app\view\copies.html" />
+    <Content Include="app\view\modal\confirmDelete.html" />
     <Content Include="app\view\newGame.html" />
     <Content Include="app\view\publishers.html" />
     <Content Include="app\view\rentals.html" />

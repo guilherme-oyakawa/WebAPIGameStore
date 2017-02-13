@@ -105,6 +105,35 @@ namespace GameStoreWebAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        // PUT: api/Rentals/5
+        [HttpPut]
+        [ActionName("returnRental")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> ReturnRental(int id) {
+            Rental rental = await rep.GetRentalAsync(id);
+            if (rental == null) {
+                return NotFound();
+            }
+            DateTime now = DateTime.Now;
+            rental.ReturnedOn = now;
+            rep.ReturnCopy(rental.CopyID);
+            if (rental.RentalFee > 0) {
+                Fee fee = new Fee {
+                    RentalID = rental.RentalID,
+                    Rental = rental,
+                    Value = rental.RentalFee,
+                    Paid = false
+                };
+                rep.InsertFee(fee);
+                await rep.SaveAsync();
+            };
+
+            rep.UpdateRental(rental);
+            await rep.SaveAsync();
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // POST: api/Rentals
         [HttpPost]
         [ActionName("insertRental")]
