@@ -40,7 +40,7 @@ app.controller('updateRental', function ($scope, rentalService) {
         ClientID: $scope.ClientID,
         CopyID: $scope.CopyID
     };
-    var updateRental = function ($scope) {
+    $scope.updateRental = function () {
         rentalService.update(action, rental,
             function (retorno) {
                 $scope.rentalAdded = retorno;
@@ -76,7 +76,7 @@ app.controller('insertRental', function ($scope, rentalService) {
 
 app.controller('deleteRental', function ($scope, rentalService) {
     var action = { action: 'deleteRental' };
-    var deleteRental = function ($scope) {
+    $scope.deleteRental = function () {
         rentalService.remove(action, { id: $scope.RentalID },
         function (retorno) {
             $scope.rentalDeleted = retorno;

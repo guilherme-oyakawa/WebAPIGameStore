@@ -29,6 +29,22 @@ namespace GameStoreWebAPI.Controllers
         [HttpGet]
         [ActionName("getClients")]
         public IEnumerable<ClientDTO> GetClients() {
+            var query = from c in rep.GetClients()
+                        select c.toDTO();
+            return query;
+        }
+
+        [HttpGet]
+        [ActionName("getPastClients")]
+        public IEnumerable<ClientDTO> GetPastClients() {
+            var query = from c in rep.GetInactiveClients()
+                        select c.toDTO();
+            return query;
+        }
+
+        [HttpGet]
+        [ActionName("getActiveClients")]
+        public IEnumerable<ClientDTO> GetActiveClients() {
             var query = from c in rep.GetActiveClients()
                         select c.toDTO();
             return query;
@@ -80,6 +96,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Clients
         [HttpPost]
         [ActionName("insertClient")]
+        [ResponseType(typeof(Client))]
         public async Task<IHttpActionResult> PostClient(Client client)
         {
             if (!ModelState.IsValid)
@@ -90,7 +107,7 @@ namespace GameStoreWebAPI.Controllers
             rep.InsertClient(client);
             await rep.SaveAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = client.ClientID }, client.toDTO());
+            return CreatedAtRoute("DefaultApi", new { id = client.ClientID }, client);
         }
 
         // DELETE: api/Clients/5

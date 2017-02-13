@@ -92,7 +92,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Games
         [HttpPost]
         [ActionName("insertGame")]
-        [ResponseType(typeof(GameDTO))]
+        [ResponseType(typeof(Game))]
         public async Task<IHttpActionResult> PostGame(Game game)
         {
             if (!ModelState.IsValid)
@@ -103,7 +103,7 @@ namespace GameStoreWebAPI.Controllers
             rep.InsertGame(game);
             await rep.SaveAsync();
             
-            return CreatedAtRoute("DefaultApi", new { id = game.GameID }, game.toDTO());
+            return CreatedAtRoute("DefaultApi", new { id = game.GameID }, game);
         }
 
         // DELETE: api/Games/5

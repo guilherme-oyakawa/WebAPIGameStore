@@ -55,10 +55,10 @@ app.controller('updateCopy', function ($scope, copyService) {
         Available: $scope.Available,
         GameID: $scope.GameID
     };
-    var insertCopy = function ($scope) {
+    $scope.updateCopy = function () {
         copyService.update(action, copy,
             function (retorno) {
-                $scope.copyAdded = retorno;
+                $scope.copyUpdated = retorno;
             },
             function (erro) {
                 console.log(erro);
@@ -73,10 +73,10 @@ app.controller('insertCopy', function ($scope, copyService) {
         Available: true,
         GameID: $scope.GameID
     };
-    var insertCopy = function ($scope) {
+    $scope.insertCopy = function () {
         copyService.save(action, copy,
             function (retorno) {
-                $scope.copyUpdated = retorno;
+                $scope.copyAdded = retorno;
             },
             function (erro) {
                 console.log(erro);
@@ -86,7 +86,7 @@ app.controller('insertCopy', function ($scope, copyService) {
 
 app.controller('deleteCopy', function ($scope, copyService) {
     var action = { action: 'deleteCopy' };
-    var deleteCopy = function ($scope) {
+    var deleteCopy = function () {
         copyService.remove(action, { id: $scope.CopyID },
         function (retorno) {
             $scope.copyDeleted = retorno;

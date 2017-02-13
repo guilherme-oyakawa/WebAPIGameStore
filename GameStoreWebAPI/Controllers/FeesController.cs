@@ -89,7 +89,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Fees
         [HttpPost]
         [ActionName("insertFee")]
-        [ResponseType(typeof(FeeDTO))]
+        [ResponseType(typeof(Fee))]
         public async Task<IHttpActionResult> PostFee(Fee fee)
         {
             if (!ModelState.IsValid)
@@ -99,7 +99,7 @@ namespace GameStoreWebAPI.Controllers
 
             rep.InsertFee(fee);
             await rep.SaveAsync();
-            return CreatedAtRoute("DefaultApi", new { id = fee.FeeID }, fee.toDTO());
+            return CreatedAtRoute("DefaultApi", new { id = fee.FeeID }, fee);
         }
 
         // DELETE: api/Fees/5

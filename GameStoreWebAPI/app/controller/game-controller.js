@@ -22,28 +22,59 @@ app.controller('getGame', function ($scope, gameService, $stateParams) {
         });
 });
 
-app.controller('updateGame', function ($scope, gameService) {
+app.controller('updateGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService) {
 
     var game;
-    var action = {
-        action: "updateGame",
-        id: $scope.GameID
-    };
+    var action = {action: "getGame"};
+    gameService.get(action, { id: $stateParams.id },
+        function (retorno) {
+            $scope.GameID = retorno.GameID;
+            $scope.game = retorno;
+            $scope.Title = retorno.Title;
+            $scope.YearDate = retorno.Year;
+            $scope.Description = retorno.Description;
+            $scope.Value = retorno.Value;
+            $scope.GenreID = retorno.GenreID;
+            $scope.PublisherID = retorno.PublisherID;
+            $scope.ESRBID = retorno.RatingID;
+            console.log(retorno);
+        },
+        function (erro) {
+            console.log(erro);
+        });
 
-    /*
-    $scope.Title = 
-    $scope.YearDate = 
-    $scope.Description = 
-    $scope.Value = 
-    $scope.GenreID = 
-    $scope.PublisherID = 
-    $scope.ESRBID = 
-    */
+    ratingService.query({ action: "getRatings" },
+        function (retorno) {
+            $scope.ratings = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
 
-    var insertGame = function ($scope) {
+    publisherService.query({ action: "getPublishers" },
+        function (retorno) {
+            $scope.publishers = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
 
+    genreService.query({ action: "getGenres" },
+        function (retorno) {
+            $scope.genres = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+
+    $scope.updateGame = function () {
+        console.log($scope);
+        action = {
+            action: "updateGame",
+            id: $stateParams.id
+        };
         game = {
-            GameID: $scope.GameID,
+            GameID: $stateParams.id,
             Title: $scope.Title,
             Year: $scope.YearDate,
             Description: $scope.Description,
@@ -56,10 +87,12 @@ app.controller('updateGame', function ($scope, gameService) {
         gameService.update(action, game,
             function (retorno) {
                 $scope.gameUpdated = retorno;
+                $state.go('games');
             },
             function (erro) {
                 console.log(erro);
             });
+        
     };
 });
 
@@ -91,28 +124,65 @@ app.controller('testUpdate', function ($scope, gameService) {
 });
 */
 
-app.controller('insertGame', function ($scope, gameService) {
-    var action = { action: "insertGame" };
+app.controller('insertGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService) {
+    var action;
 
-    var game = {
-        GameID: $scope.GameID,
-        Title: $scope.Title,
-        Year: $scope.YearDate,
-        Description: $scope.Description,
-        Value: $scope.Value,
-        GenreID: $scope.GenreID,
-        PublisherID: $scope.PublisherID,
-        ESRBID: $scope.ESRBID
-    };
+    $scope.Title = "Insert title here";
+    $scope.YearDate;
+    $scope.Description = "Insert brief description here";
+    $scope.Value = 0;
+    $scope.GenreID;
+    $scope.PublisherID;
+    $scope.ESRBID = 1;
 
-    var insertgame = function ($scope) {
+    ratingService.query({ action: "getRatings" },
+        function (retorno) {
+            $scope.ratings = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+
+    publisherService.query({ action: "getPublishers" },
+        function (retorno) {
+            $scope.publishers = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+
+    genreService.query({ action: "getGenres" },
+        function (retorno) {
+            $scope.genres = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+
+    $scope.insertGame = function () {
+        console.log("B4", $scope);
+        var game = {
+            Title: $scope.Title,
+            Year: $scope.YearDate,
+            Description: $scope.Description,
+            Value: $scope.Value,
+            GenreID: $scope.GenreID,
+            PublisherID: $scope.PublisherID,
+            ESRBID: $scope.ESRBID
+        };
+        console.log("Game added?", game);
+        action = { action: "insertGame" };
+
         gameService.save(action, game,
             function (retorno) {
                 $scope.gameAdded = retorno;
+                console.log("Game Added", retorno);
+                $state.go('games');
             },
             function (erro) {
                 console.log(erro);
             });
+       
     };
 });
 

@@ -108,7 +108,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Rentals
         [HttpPost]
         [ActionName("insertRental")]
-        [ResponseType(typeof(RentalDTO))]
+        [ResponseType(typeof(Rental))]
         public async Task<IHttpActionResult> PostRental(Rental rental)
         {
             if (!ModelState.IsValid)
@@ -118,7 +118,7 @@ namespace GameStoreWebAPI.Controllers
 
             rep.InsertRental(rental);
             await rep.SaveAsync();
-            return CreatedAtRoute("DefaultApi", new { id = rental.RentalID }, rental.toDTO());
+            return CreatedAtRoute("DefaultApi", new { id = rental.RentalID }, rental);
         }
 
         // DELETE: api/Rentals/5

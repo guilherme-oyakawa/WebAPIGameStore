@@ -268,6 +268,7 @@
     <Content Include="app\services\game-service.js" />
     <Content Include="app\services\genre-service.js" />
     <Content Include="app\services\publisher-service.js" />
+    <Content Include="app\services\rating-service.js" />
     <Content Include="app\services\rental-service.js" />
     <Content Include="app\view\clients.html" />
     <Content Include="app\view\editGame.html" />
@@ -278,7 +279,7 @@
     <Content Include="app\view\genres.html" />
     <Content Include="app\view\home.html" />
     <Content Include="app\view\copies.html" />
-    <Content Include="app\view\modal\gameModal.html" />
+    <Content Include="app\view\newGame.html" />
     <Content Include="app\view\publishers.html" />
     <Content Include="app\view\rentals.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />

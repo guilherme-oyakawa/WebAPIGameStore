@@ -1,4 +1,5 @@
-﻿app.config(function ($stateProvider, $urlRouterProvider) {
+﻿
+app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/Home');
 
     var states =[
@@ -31,6 +32,11 @@
         name: 'game',
         url: '/Games/:id',
         templateUrl: '../app/view/game.html'
+    },
+    {
+        name: 'newGame',
+        url: '/NewGame',
+        templateUrl: '../app/view/newGame.html'
     },
 
     {

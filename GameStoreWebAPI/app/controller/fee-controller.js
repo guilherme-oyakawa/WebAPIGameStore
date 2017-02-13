@@ -37,7 +37,7 @@ app.controller('updateFee', function ($scope, feeService) {
         Value: $scope.Value,
         Paid: $scope.Paid
     };
-    var insertFee = function ($scope) {
+    $scope.updateFee = function () {
         feeService.update(action, fee,
             function (retorno) {
                 $scope.feeAdded = retorno;
@@ -56,7 +56,7 @@ app.controller('insertFee', function ($scope, feeService) {
         Value: $scope.Value,
         Paid: $scope.Paid
     };
-    var insertFee = function ($scope) {
+    $scope.insertFee = function () {
         feeService.save(action, fee,
             function (retorno) {
                 $scope.feeUpdated = retorno;

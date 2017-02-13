@@ -24,6 +24,7 @@ app.controller('getClient', function ($scope, clientService) {
     };
 });
 
+/*
 app.controller('testGet', function ($scope, clientService) {
     var action = { action: "getClient"};
     clientService.get(action, { id:7 },
@@ -36,6 +37,7 @@ app.controller('testGet', function ($scope, clientService) {
             });
 });
 
+
 app.controller('testDelete', function ($scope, clientService) {
     var action = { action: 'deleteClient' };
    clientService.remove(action, { id: 9},
@@ -46,7 +48,7 @@ app.controller('testDelete', function ($scope, clientService) {
             console.log(erro);
         });
 });
-
+*/
 
 app.controller('updateClient', function ($scope, clientService) {
     var action = {
@@ -60,7 +62,7 @@ app.controller('updateClient', function ($scope, clientService) {
         BirthDate: $scope.BirthDate,
         Active: $scope.active
     };
-    var updateClient = function ($scope) {
+    var updateClient = function () {
         clientService.update(action, client,
             function (retorno) {
                 $scope.clientUpdated = retorno;
@@ -82,7 +84,7 @@ app.controller('insertClient', function ($scope, clientService) {
         Active: $scope.active
     };
 
-    var insertClient = function ($scope) {
+    $scope.insertClient = function () {
         clientService.save(action, client,
             function (retorno) {
                 $scope.clientAdded = retorno;
@@ -95,7 +97,7 @@ app.controller('insertClient', function ($scope, clientService) {
 
 app.controller('deleteClient', function ($scope, clientService) {
     var action = { action: 'deleteClient' };
-    var deleteClient = function ($scope) {
+    $scope.deleteClient = function () {
         clientService.remove(action, { id: $scope.ClientID },
         function (retorno) {
             $scope.clientDeleted = retorno;
@@ -108,7 +110,7 @@ app.controller('deleteClient', function ($scope, clientService) {
 
 app.controller('activateClient', function ($scope, clientService) {
     var action = { action: 'activateClient' };
-    var deleteClient = function ($scope) {
+    $scope.deleteClient = function () {
         clientService.update(action, { id: $scope.ClientID },
         function (retorno) {
             $scope.clientActivated = retorno;

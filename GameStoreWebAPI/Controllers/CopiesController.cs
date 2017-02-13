@@ -99,7 +99,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Copies
         [HttpPost]
         [ActionName("insertCopy")]
-        [ResponseType(typeof(CopyDTO))]
+        [ResponseType(typeof(Copy))]
         public async Task<IHttpActionResult> PostCopy(Copy copy)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace GameStoreWebAPI.Controllers
             rep.InsertCopy(copy);
             await rep.SaveAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = copy.CopyID }, copy.toDTO());
+            return CreatedAtRoute("DefaultApi", new { id = copy.CopyID }, copy);
         }
 
         // DELETE: api/Copies/5

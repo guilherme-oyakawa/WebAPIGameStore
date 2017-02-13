@@ -1,54 +1,39 @@
 ﻿<p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
-<!--
-<table class="table" ng-app="myApp" ng-controller="getGame">
-    <tr>
-        <th>Title</th>
-        <th>Publisher</th>
-        <th>Year</th>
-        <th>Rating</th>
-        <th>Suitable Age</th>
-        <th>Value</th>
-    </tr>
-
-    <tr>
-        <td>{{game.Title}}</td>
-        <td>{{game.Publisher.Name}}</td>
-        <td>{{game.Year}}</td>
-        <td>{{game.ESRB.Rating}}</td>
-        <td>{{game.ESRB.Age}}</td>
-        <td>{{game.Value | currency:"$":2}}</td>
-    </tr>
-
-</table>
--->
-<div ng-app="myApp" ng-controller="updateGame" class="form-horizontal">
+<div ng-app="myApp" ng-controller="insertGame" class="form-horizontal">
     <form>
 
         <div class="form-group">
-            <label>Game ID: {{GameID}} </label>
+            <label>New Game</label>
         </div>
+
         <div class="form-group">
             <label>Title <input type="text" ng-model="Title" ng-required="true" /></label>
         </div>
+
         <div class="form-group">
             <label>Genre <select ng-model="GenreID" ng-options="genre.GenreID as genre.Name for genre in genres" ng-required="true"></select></label>
         </div>
+
         <div class="form-group">
             <label>Publisher <select ng-model="PublisherID" ng-options="publisher.PublisherID as publisher.Name for publisher in publishers" ng-required="true"></select></label>
         </div>
+
         <div class="form-group">
-            <label>Rating <select ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings"></select></label>
+            <label>Rating <select ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings" ng-required="true"></select></label>
         </div>
+
         <div class="form-group">
             <label>Year <input type="datetime" ng-model="YearDate" ng-required="true" /></label>
         </div>
+
         <div class="form-group">
             <label>Description <input type="text" ng-model="Description" ng-required="true" /></label>
         </div>
+
         <div class="form-group">
             <label>Value <input ng-model="Value" /></label>
         </div>
-        <input type="button" ng-click="confirm()" value="Confirm" />
-        <input type="button" ng-click="updateGame()" value="Update!" />
-</form>
+
+        <input type="button" ng-click="insertGame()" value="Insert Game" />
+    </form>
 </div>
