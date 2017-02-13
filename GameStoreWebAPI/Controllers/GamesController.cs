@@ -109,7 +109,7 @@ namespace GameStoreWebAPI.Controllers
         // DELETE: api/Games/5
         [HttpDelete]
         [ActionName("deleteGame")]
-        [ResponseType(typeof(GameDTO))]
+        [ResponseType(typeof(Game))]
         public async Task<IHttpActionResult> DeleteGame(int id)
         {
             Game game = await rep.GetGameAsync(id);
@@ -120,7 +120,7 @@ namespace GameStoreWebAPI.Controllers
             rep.DeleteGame(id);
             await rep.SaveAsync();
 
-            return Ok(game.toDTO());
+            return Ok(game);
         }
 
         protected override void Dispose(bool disposing)

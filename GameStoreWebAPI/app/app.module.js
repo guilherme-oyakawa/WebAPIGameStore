@@ -4,6 +4,7 @@
         "ngResource",
         'ui.router',
         'angular.filter',
-        'angularModalService'
+        'angularModalService',
+        'infinite-scroll'
     ]
 );

@@ -11,18 +11,17 @@
             <th>Value</th>
             <th>Actions</th>
         </tr>
-
-        <tr ng-repeat="g in games |orderBy: 'Title'">
-            <td>{{g.Title}}</td>
-            <td>{{g.PublisherName}}</td>
-            <td>{{g.Year | date:'yyyy'}}</td>
-            <td>{{g.RatingDescription}}</td>
-            <td>{{g.Value | currency:"$":2}}</td>
-            <td>
-                <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})">Check Copies</a>
-                <a class="btn btn-default" ui-sref="game({id: g.GameID})">Edit</a>
-                <a class="btn btn-danger">Delete</a><!--MODAL?-->
-            </td>
-        </tr>
-    </table>
+            <tr ng-repeat="g in games |orderBy: 'Title'">
+                <td>{{g.Title}}</td>
+                <td>{{g.PublisherName}}</td>
+                <td>{{g.Year | date:'yyyy'}}</td>
+                <td>{{g.RatingDescription}}</td>
+                <td>{{g.Value | currency:"$":2}}</td>
+                <td>
+                    <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})">Check Copies</a>
+                    <a class="btn btn-default" ui-sref="game({id: g.GameID})">Edit</a>
+                    <a class="btn btn-danger" ng-click="deleteGame(g.GameID)">Delete</a><!--MODAL?-->
+                </td>
+            </tr>
+</table>
 </div>

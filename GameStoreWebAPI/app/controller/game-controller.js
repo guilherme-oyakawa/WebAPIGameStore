@@ -1,4 +1,4 @@
-﻿app.controller('listGames', function ($scope, gameService) {
+﻿app.controller('listGames', function ($scope, $state, gameService) {
     var action = {
         action: "getGames"
     };
@@ -9,6 +9,22 @@
         function (erro) {
             console.log(erro);
         });
+
+    $scope.deleteGame = function (id) {
+        action = {
+            action: 'deleteGame',
+            id: id
+        };
+        gameService.remove(action,
+        function (retorno) {
+            $scope.gameDeleted = retorno;
+            $state.reload();
+        },
+        function (erro) {
+            console.log(erro);
+        });
+    }
+
 });
 
 app.controller('getGame', function ($scope, gameService, $stateParams) {
@@ -96,34 +112,6 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
     };
 });
 
-
-/* TEST UPDATE API FUNCTION
-
-app.controller('testUpdate', function ($scope, gameService) {
-    var action = {
-        action: "updateGame",
-        id: 4
-    };
-    var game = {
-        GameID: 4,
-        Description: "updated",
-        GenreID: 3,
-        PublisherID: 3,
-        ESRBID: 3,
-        Title: "ARMS",
-        Value: 49.99,
-        Year: "2017-05-16T00:00:00"
-    };
-    gameService.update(action, game,
-            function (retorno) {
-                $scope.gameUpdated = retorno;
-            },
-            function (erro) {
-                console.log(erro);
-            });
-});
-*/
-
 app.controller('insertGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService) {
     var action;
 
@@ -160,7 +148,6 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
         });
 
     $scope.insertGame = function () {
-        console.log("B4", $scope);
         var game = {
             Title: $scope.Title,
             Year: $scope.YearDate,
@@ -170,7 +157,7 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
             PublisherID: $scope.PublisherID,
             ESRBID: $scope.ESRBID
         };
-        console.log("Game added?", game);
+        console.log("Game added", game);
         action = { action: "insertGame" };
 
         gameService.save(action, game,
