@@ -18,7 +18,7 @@
     };
 
     //modal
-    $scope.confirmDelete = null;
+    //$scope.confirmDelete = null;
     $scope.deleteGame = function (id) {
         action = {
             action: 'deleteGame',
@@ -41,19 +41,10 @@
                         console.log(erro);
                     });
                 };
+                $timeout("", 500);
                 $state.reload();
             });
         });
-
-        /*gameService.remove(action,
-        function (retorno) {
-            $scope.gameDeleted = retorno;
-            toaster.pop('warning', "Delete", ("Game #" + id + " Deleted."));
-            $timeout($state.reload, 1000);
-        },
-        function (erro) {
-            console.log(erro);
-        });*/
     };
 
 });
@@ -120,7 +111,7 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
             action: "updateGame",
             id: $stateParams.id
         };
-        game = {
+        newGame = {
             GameID: $scope.GameID,
             Title: $scope.Title,
             Year: $scope.YearDate,
@@ -130,10 +121,10 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
             PublisherID: $scope.PublisherID,
             ESRBID: $scope.ESRBID
         };
-        gameService.update(action, game,
+        gameService.update(action, newGame,
             function (retorno) {
                 $scope.gameUpdated = retorno;
-                toaster.pop('warning', "Edit", ("Game #" + $scope.GameID + " Updated."));
+                toaster.pop('warning', "Edit", ("Game #" + $scope.GameID + "("+ $scope.Title +")" + " Updated."));
                 $state.go('games');
                 
             },
@@ -193,7 +184,7 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
 
         gameService.save(action, game,
             function (retorno) {
-                $scope.gameAdded = retorno;
+                //$scope.gameAdded = retorno;
                 toaster.pop('success', "Create", ("New game Created."));
                 $state.go('games');
             },
@@ -201,18 +192,5 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
                 console.log(erro);
             });
        
-    };
-});
-
-app.controller('deleteGame', function ($scope, gameService) {
-    var action = { action: 'deletegame' };
-    var deleteGame = function ($scope) {
-        gameService.remove(action, { id: $scope.gameID },
-        function (retorno) {
-            $scope.gameDeleted = retorno;
-        },
-        function (erro) {
-            console.log(erro);
-        });
     };
 });

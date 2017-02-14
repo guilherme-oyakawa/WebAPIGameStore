@@ -1,14 +1,19 @@
-﻿<div ng-app="myApp" ng-controller="listPublishers">
+﻿<p><a ui-sref="newPublisher" class="btn btn-default">New Publisher</a></p>
+<div ng-app="myApp" ng-controller="listPublishers">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
             <th>
                 Publisher
             </th>
+            <th>
+                Actions
+            </th>
         </tr>
 
         <tr ng-repeat="p in publishers | orderBy: 'Name'">
             <td>{{p.Name}}</td>
+            <td><a class="btn btn-danger" ng-click="deletePublisher(p.PublisherID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a></td>
         </tr>
     </table>
 </div>

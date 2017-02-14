@@ -8,6 +8,7 @@
         'infinite-scroll',
         'toaster',
         'ngAnimate',
+        'ui.bootstrap'
     ]
 );
 

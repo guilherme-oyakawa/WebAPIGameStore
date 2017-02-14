@@ -1,4 +1,5 @@
-﻿<div ng-app="myApp" ng-controller="listClients">
+﻿<p><a ui-sref="newClient" class="btn btn-default">New Client</a></p>
+<div ng-app="myApp" ng-controller="listClients">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
@@ -17,10 +18,9 @@
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
             <td>
-                <a class="btn btn-default">Details</a>
-                <a class="btn btn-default">Edit</a>
-                <a class="btn btn-danger" ng-show="c.Active" ng-click="Deactivate(c.ClientID)">Deactivate</a>
-                <a class="btn btn-success" ng-show="!c.Active" ng-click="Activate(c.ClientID)"> Activate </a>
+                <a class="btn btn-default" ui-sref="client({id: c.ClientID})"><i class="fa fa-info-circle"aria-hidden="true"></i> Edit</a>
+                <a class="btn btn-danger" ng-show="c.Active" ng-click="Deactivate(c.ClientID)"><i class="fa fa-ban fa" aria-hidden="true"></i>Deactivate</a>
+                <a class="btn btn-success" ng-show="!c.Active" ng-click="Activate(c.ClientID)"><i class="fa fa-check" aria-hidden="true"></i> Activate </a>
             </td>
         </tr>
     </table>

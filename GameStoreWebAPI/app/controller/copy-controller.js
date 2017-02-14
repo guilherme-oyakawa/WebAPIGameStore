@@ -67,20 +67,37 @@ app.controller('updateCopy', function ($scope, copyService) {
 });
 
 
-app.controller('insertCopy', function ($scope, copyService) {
-    var action = { action: "insertCopy" };
-    var copy = {
-        Available: true,
-        GameID: $scope.GameID
+app.controller('insertCopy', function ($scope, $state, toaster, copyService, gameService) {
+    var action = {
+        action:'getGames'
     };
+    $scope.numberOfCopies = 1;
+
+    gameService.query(action,
+        function (retorno) {
+            $scope.games = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
     $scope.insertCopy = function () {
-        copyService.save(action, copy,
-            function (retorno) {
-                $scope.copyAdded = retorno;
-            },
-            function (erro) {
-                console.log(erro);
-            });
+        action = { action: "insertCopy" };
+        var copy = {
+            GameID: $scope.GameID,
+            Available: true
+        };
+
+        for (var i = 0; i < $scope.numberOfCopies; i++) {
+            copyService.save(action, copy,
+                function (retorno) {
+                    $scope.copyAdded = retorno;
+                },
+                function (erro) {
+                    console.log(erro);
+                });
+        };
+        toaster.pop("success", "New Copies", "Copies added to database.");
+        $state.go('copies');
     };
 });
 

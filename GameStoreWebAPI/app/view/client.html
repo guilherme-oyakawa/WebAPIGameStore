@@ -1,0 +1,22 @@
+﻿<p><a ui-sref="clients" class="btn btn-default">Back to clients</a></p>
+<div ng-app="myApp" ng-controller="updateClient" class="form-horizontal">
+    <form>
+        <div class="form-group">
+            <label> Client ID: {{ClientID}}</label>
+        </div>
+
+        <div class="form-group">
+            <label>First/Middle name <input type="text" ng-model="FirstMidName" ng-required="true" /></label>
+        </div>
+
+        <div class="form-group">
+            <label>Last name <input type="text" ng-model="LastName" ng-required="true" /></label>
+        </div>
+
+        <div class="form-group">
+            <label>Birth Date</label>
+            <div uib-datepicker-popup ng-model="BirthDate" class="well well-sm" datepicker-options="options"></div>
+        </div>
+        <input type="button" ng-click="updateClient()" value="Update Client" />
+    </form>
+</div>

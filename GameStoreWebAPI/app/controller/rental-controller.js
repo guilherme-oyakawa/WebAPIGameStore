@@ -3,11 +3,9 @@
         action: "getRentals"
     };
     rentalService.query(chaveBusca,
-        //success
         function (retorno) {
             $scope.rentals = retorno;
         },
-        //error
         function (erro) {
             console.log(erro);
         });

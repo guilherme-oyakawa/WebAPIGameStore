@@ -1,14 +1,19 @@
-﻿<div ng-app="myApp" ng-controller="listGenres">
+﻿<p><a ui-sref="newGenre" class="btn btn-default">New Genre</a></p>
+<div ng-app="myApp" ng-controller="listGenres">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
             <th>
                 Genre
             </th>
+            <th>
+                Actions
+            </th>
         </tr>
 
         <tr ng-repeat="g in genres | orderBy: 'Name'">
             <td>{{g.Name}}</td>
+            <td><a class="btn btn-danger" ng-click="deleteGenre(g.GenreID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a></td>
         </tr>
     </table>
 </div>

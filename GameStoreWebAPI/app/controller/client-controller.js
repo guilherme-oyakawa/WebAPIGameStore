@@ -74,73 +74,67 @@ app.controller('testDelete', function ($scope, clientService) {
 });
 */
 
-app.controller('updateClient', function ($scope, clientService) {
+app.controller('updateClient', function ($scope, $stateParams, $state, $timeout, toaster, clientService) {
     var action = {
-        action: "updateClient",
-        id: $scope.ClientID
+        action: "getClient"
     };
-    var client = {
-        ClientID: $scope.ClientID,
-        FirstMidName: $scope.FirstMidName,
-        LastName: $scope.LastName,
-        BirthDate: $scope.BirthDate,
-        Active: $scope.active
-    };
-    var updateClient = function () {
-        clientService.update(action, client,
-            function (retorno) {
-                $scope.clientUpdated = retorno;
-            },
-            function (erro) {
-                console.log(erro);
-            });
-    };
-});
-
-app.controller('insertClient', function ($scope, clientService) {
-    var action = { action: "insertClient" };
-
-    var client = {
-        ClientID: $scope.ClientID,
-        FirstMidName: $scope.FirstMidName,
-        LastName: $scope.LastName,
-        BirthDate: $scope.BirthDate,
-        Active: $scope.active
-    };
-
-    $scope.insertClient = function () {
-        clientService.save(action, client,
-            function (retorno) {
-                $scope.clientAdded = retorno;
-            },
-            function (erro) {
-                console.log(erro);
-            });
-    };
-});
-
-app.controller('deleteClient', function ($scope, clientService) {
-    var action = { action: 'deleteClient' };
-    $scope.deleteClient = function () {
-        clientService.remove(action, { id: $scope.ClientID },
+    clientService.get(action, { id: $stateParams.id },
         function (retorno) {
-            $scope.clientDeleted = retorno;
+            $scope.client = retorno;
+            $scope.ClientID = retorno.ClientID;
+            $scope.FirstMidName = retorno.FirstMidName;
+            $scope.LastName = retorno.LastName;
+            $scope.BirthDate = retorno.BirthDate;
+            $scope.Active = retorno.Active;
+            console.log("Client", retorno);
         },
         function (erro) {
             console.log(erro);
         });
+
+    $scope.updateClient = function () {
+        console.log($scope);
+        action = {
+            action: "updateClient",
+            id: $stateParams.id
+        };
+        newClient = {
+            ClientID: $scope.ClientID,
+            FirstMidName: $scope.FirstMidName,
+            LastName: $scope.LastName,
+            BirthDate: $scope.BirthDate,
+            Active: $scope.Active
+        };
+
+        clientService.update(action, newClient,
+            function (retorno) {
+                toaster.pop('warning', "Edit", ("Client Updated "+"("+ $scope.FirstMidName +" "+ $scope.LastName +")"));
+                $state.go('clients');
+            },
+            function (erro) {
+                console.log(erro);
+            });
     };
 });
 
-app.controller('activateClient', function ($scope, clientService) {
-    var action = { action: 'activateClient' };
-    $scope.deleteClient = function () {
-        clientService.update(action, { id: $scope.ClientID },
-        function (retorno) {
-            $scope.clientActivated = retorno;
-        },
-        function (erro) {
-            console.log(erro);
+app.controller('insertClient', function ($scope, $state, $timeout, toaster, clientService) {
+    var action = { action: "insertClient" };
+
+    $scope.insertClient = function () {
+        var client = {
+            ClientID: $scope.ClientID,
+            FirstMidName: $scope.FirstMidName,
+            LastName: $scope.LastName,
+            BirthDate: $scope.BirthDate,
+            Active: $scope.Active
+        };
+        clientService.save(action, client,
+            function (retorno) {
+                toaster.pop('success', "Create", ("New client Created."));
+                $state.go('clients');
+            },
+            function (erro) {
+                console.log(erro);
         });
     };
 });

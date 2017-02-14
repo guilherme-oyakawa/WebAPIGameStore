@@ -271,6 +271,7 @@
     <Content Include="app\services\publisher-service.js" />
     <Content Include="app\services\rating-service.js" />
     <Content Include="app\services\rental-service.js" />
+    <Content Include="app\view\client.html" />
     <Content Include="app\view\clients.html" />
     <Content Include="app\view\fees.html" />
     <Content Include="app\view\game.html" />
@@ -280,7 +281,13 @@
     <Content Include="app\view\home.html" />
     <Content Include="app\view\copies.html" />
     <Content Include="app\view\modal\confirmDelete.html" />
+    <Content Include="app\view\newClient.html" />
+    <Content Include="app\view\newCopy.html" />
+    <Content Include="app\view\newFee.html" />
     <Content Include="app\view\newGame.html" />
+    <Content Include="app\view\newGenre.html" />
+    <Content Include="app\view\newPublisher.html" />
+    <Content Include="app\view\newRental.html" />
     <Content Include="app\view\publishers.html" />
     <Content Include="app\view\rentals.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -498,6 +505,7 @@
     <Content Include="Scripts\ng-infinite-scroll.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-2.5.0.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

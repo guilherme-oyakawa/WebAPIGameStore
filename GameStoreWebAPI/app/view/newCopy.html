@@ -1,0 +1,19 @@
+﻿<p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
+<div ng-app="myApp" ng-controller="insertCopy" class="form-horizontal">
+    <form>
+
+        <div class="form-group">
+            <label>New Copy</label>
+        </div>
+
+        <div class="form-group">
+            <label>Game <select ng-model="GameID" ng-options="game.GameID as game.Details for game in games" ng-required="true"></select></label>
+        </div>
+
+        <div class="form-group">
+            <label>Number of Copies <input type="number" ng-model="numberOfCopies" min="1" max="10"/></label>
+        </div>
+
+        <input type="button" ng-click="insertCopy()" value="Insert Game" />
+    </form>
+</div>

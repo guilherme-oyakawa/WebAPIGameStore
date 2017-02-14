@@ -8,7 +8,7 @@
             <th>Rental #</th>
             <th>Value</th>
             <th>Paid</th>
-
+            <th>Actions</th>
         </tr>
 
         <tr ng-repeat="f in fees">
@@ -17,7 +17,14 @@
             <td>{{f.Title}}</td>
             <td>{{f.RentalID}}</td>
             <td>{{f.Value | currency:"$":2}}</td>
-            <td>{{f.Paid}}</td>
+            <td>
+                <i class="fa fa-times-circle fa-3x" aria-hidden="true" ng-show="!f.Paid"></i>
+                <i class="fa fa-check-circle fa-3x" aria-hidden="true" ng-show="f.Paid"></i></td>
+            <td>
+                <a class="btn btn-warning" ng-click="payFee(f.FeeID)" ng-show="!f.Paid" disabled><i class="fa fa-check-square" aria-hidden="true"></i>Pay Fee</a>
+                <a class="btn btn-warning" ng-click="payFee(f.FeeID)" ng-show="f.Paid"><i class="fa fa-check-square" aria-hidden="true"></i>Pay Fee</a>
+                <a class="btn btn-danger" ng-click="deleteFee(f.FeeID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
+            </td>
         </tr>
     </table>
 </div>

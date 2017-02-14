@@ -14,14 +14,34 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "../app/view/copies.html"
     },
     {
+        name: 'gameCopies',
+        url: '/Games/:id/Copies',
+        templateUrl: '../app/view/gameCopies.html'
+    },
+    {
+        name: 'newCopy',
+        url: '/NewCopy',
+        templateUrl: "../app/view/newCopy.html"
+    },
+    {
         name: 'genres',
         url: '/Genres',
         templateUrl: "../app/view/genres.html"
     },
     {
+        name: 'newGenre',
+        url: '/NewGenre',
+        templateUrl: "../app/view/newGenre.html"
+    },
+    {
         name: 'publishers',
         url: '/Publishers',
         templateUrl: "../app/view/publishers.html"
+    },
+    {
+        name: 'newPublisher',
+        url: '/NewPublisher',
+        templateUrl: "../app/view/newPublisher.html"
     },
     {
         name: 'games',
@@ -38,29 +58,52 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/NewGame',
         templateUrl: '../app/view/newGame.html'
     },
-
-    {
-        name: 'gameCopies',
-        url: '/Games/:id/Copies',
-        templateUrl: '../app/view/gameCopies.html'
-    },
-
     {
         name: 'clients',
         url: '/Clients',
         templateUrl: "../app/view/clients.html"
     },
-
+    {
+        name: 'client',
+        url: '/Clients/:id',
+        templateUrl: '../app/view/client.html'
+    },
+    {
+        name: 'newClient',
+        url: '/newClient',
+        templateUrl: '../app/view/newClient.html'
+    },
     {
         name: 'rentals',
         url: '/Rentals',
         templateUrl: "../app/view/rentals.html"
     },
     {
+        name: 'rental',
+        url: '/Rental/:id',
+        templateUrl: "../app/view/rental.html"
+    },
+    {
+        name: 'newRental',
+        url: '/NewRental',
+        templateUrl: "../app/view/newRental.html"
+    },
+    {
         name: 'fees',
         url: '/Fees',
         templateUrl: "../app/view/fees.html"
-    }];
+    },
+    {
+        name: 'fee',
+        url: '/Fee/:id',
+        templateUrl: "../app/view/fee.html"
+    },
+    {
+        name: 'newFee',
+        url: '/NewFee',
+        templateUrl: "../app/view/NewFees.html"
+    }
+    ];
 
     states.forEach(function (state) {
         $stateProvider.state(state);

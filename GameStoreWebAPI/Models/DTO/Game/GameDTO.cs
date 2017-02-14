@@ -19,5 +19,11 @@ namespace GameStoreWebAPI.Models.DTO.Game {
 
         public int RatingID;
         public string RatingDescription;
+
+        public string Details {
+            get {
+                return (this.Title + " (" + this.PublisherName + ", " + this.Year.Year + ")");
+            }
+        }
     }
 }

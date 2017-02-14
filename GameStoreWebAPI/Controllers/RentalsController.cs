@@ -153,7 +153,7 @@ namespace GameStoreWebAPI.Controllers
         // DELETE: api/Rentals/5
         [HttpDelete]
         [ActionName("deleteRental")]
-        [ResponseType(typeof(RentalDTO))]
+        [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> DeleteRental(int id)
         {
             Rental rental = await rep.GetRentalAsync(id);
@@ -165,7 +165,7 @@ namespace GameStoreWebAPI.Controllers
             rep.DeleteRental(id);
             await rep.SaveAsync();
 
-            return Ok(rental.toDTO());
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
