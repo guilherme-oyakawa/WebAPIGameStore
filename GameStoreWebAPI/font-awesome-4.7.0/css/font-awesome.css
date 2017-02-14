@@ -436,9 +436,11 @@
 }
 .fa-times-circle:before {
   content: "\f057";
+  color: #ff0000;
 }
 .fa-check-circle:before {
   content: "\f058";
+  color: #19bb18    ;
 }
 .fa-question-circle:before {
   content: "\f059";

@@ -1,6 +1,8 @@
-﻿<p><a ui-sref="newCopy" class="btn btn-default">New Game Copy</a></p>
+﻿<p>
+    <a ui-sref="newCopy" class="btn btn-default">New Game Copy</a>
+    <a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a>
+</p>
 <div ng-app="myApp" ng-controller="listCopies">
-    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
             <th>
@@ -14,19 +16,14 @@
             </th>
         </tr>
 
-        <!--<tr ng-repeat="(key, value) in copies | groupBy: 'CopyID'">
-            <td>{{key}}</td>
-        </tr>-->
-        
-        
-        <tr ng-repeat="c in copies | orderBy: 'GameTitle'">
+        <tr ng-repeat="c in copies.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy: 'GameTitle'">
             <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
             <td>{{c.CopyID}}</td>
-            <!--<td>{{c.Available}}</td>-->
             <td>
                 <i class="fa fa-times-circle fa-3x" aria-hidden="true" ng-show="!c.Available"></i>
                 <i class="fa fa-check-circle fa-3x" aria-hidden="true" ng-show="c.Available"></i>
             </td>
         </tr>
     </table>
+    <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
 </div>

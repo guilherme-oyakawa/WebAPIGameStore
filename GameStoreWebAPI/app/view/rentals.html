@@ -1,6 +1,8 @@
-﻿<p><a ui-sref="newRental" class="btn btn-default">New Rental</a></p>
+﻿<p>
+    <a ui-sref="newRental" class="btn btn-default">New Rental</a>
+    <a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a>
+</p>
 <div ng-app="myApp" ng-controller="listRentals">
-    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
     <table class="table">
         <tr>
             <th>Rental #</th>
@@ -22,10 +24,9 @@
             <td>{{r.ReturnedOn | date:'dd/MM/yyyy'}}</td>
             <td>{{r.Price | currency:"$":2}}</td>
             <td>
-                <a class="btn btn-warning" ng-show="r.ReturnedOn != null" disabled><i class="fa fa-check-square" aria-hidden="true"></i>Return</a>
-                <a class="btn btn-warning" ng-click="returnRental(r.RentalID)" ng-show="r.ReturnedOn == null"><i class="fa fa-check-square" aria-hidden="true"></i>Return</a>
-                <a class="btn btn-default" ui-sref="rental(r.RentalID)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
-                <a class="btn btn-danger" ng-click="deleteRental(r.RentalID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
+                <a class="btn btn-warning" ng-disabled="r.ReturnedOn != null"><i class="fa fa-check-square" aria-hidden="true"></i> Return</a>
+                <a class="btn btn-default" ui-sref="rental(r.RentalID)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                <a class="btn btn-danger" ng-click="deleteRental(r.RentalID)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
             </td>
         </tr>
 

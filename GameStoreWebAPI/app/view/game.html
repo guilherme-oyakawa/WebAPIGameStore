@@ -28,30 +28,27 @@
             <label>Game ID: {{GameID}} </label>
         </div>
         <div class="form-group">
-            <label>Title <input type="text" ng-model="Title" ng-required="true" /></label>
+            <label>Title <input class="form-control" type="text" ng-model="Title" ng-required="true" /></label>
         </div>
         <div class="form-group">
-            <label>Genre <select ng-model="GenreID" ng-options="genre.GenreID as genre.Name for genre in genres" ng-required="true"></select></label>
+            <label>Genre <select class="form-control" ng-model="GenreID" ng-options="genre.GenreID as genre.Name for genre in genres" ng-required="true"></select></label>
         </div>
         <div class="form-group">
-            <label>Publisher <select ng-model="PublisherID" ng-options="publisher.PublisherID as publisher.Name for publisher in publishers" ng-required="true"></select></label>
+            <label>Publisher <select class="form-control" ng-model="PublisherID" ng-options="publisher.PublisherID as publisher.Name for publisher in publishers" ng-required="true"></select></label>
         </div>
         <div class="form-group">
-            <label>Rating <select ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings"></select></label>
+            <label>Rating <select class="form-control" ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings"></select></label>
         </div>
-        <!--<div class="form-group">
-            <label>Year <input type="datetime" ng-model="YearDate" ng-required="true" /></label>
-        </div>-->
         <div class="form-group">
-            <label>Release Date</label> 
+            <label>Release Date</label>
             <div uib-datepicker ng-model="YearDate" class="well well-sm" datepicker-options="options"></div>
         </div>
         <div class="form-group">
-            <label>Description <input type="text" ng-model="Description" ng-required="true" /></label>
+            <label>Description <input class="form-control" type="text" ng-model="Description" ng-required="true" /></label>
         </div>
         <div class="form-group">
             <label>Value <input ng-model="Value" /></label>
         </div>
-        <input type="button" ng-click="updateGame()" value="Update Game" />
+        <input class="btn btn-default" type="button" ng-click="updateGame()" value="Update Game" />
 </form>
 </div>

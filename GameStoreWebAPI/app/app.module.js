@@ -5,11 +5,8 @@
         'ui.router',
         'angular.filter',
         'angularModalService',
-        'infinite-scroll',
         'toaster',
         'ngAnimate',
         'ui.bootstrap'
     ]
 );
-
-//app.value('THROTTLE_MILLISECONDS', 250);

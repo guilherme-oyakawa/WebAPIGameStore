@@ -1,24 +1,20 @@
-﻿app.controller('listGames', function ($scope, $state, $timeout, toaster, gameService, ModalService) {
+﻿app.controller('listGames', function ($scope, $state, $timeout, toaster, gameService, copyService, ModalService) {
     var action = {
         action: "getGames"
     };
     gameService.query(action,
         function (retorno) {
             $scope.games = retorno;
+            $scope.totalItems = retorno.length;
         },
         function (erro) {
             console.log(erro);
         });
 
-    //Infinite Scroll
-    $scope.Limit = 5;
-    $scope.increaseLimit = function () {
-        $scope.Limit += 5;
-        console.log("increased limit to " + $scope.Limit);
-    };
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
 
-    //modal
-    //$scope.confirmDelete = null;
+
     $scope.deleteGame = function (id) {
         action = {
             action: 'deleteGame',
@@ -45,6 +41,14 @@
                 $state.reload();
             });
         });
+    };
+    
+    $scope.getCopiesPerGame = function (id) {
+        action = {
+            action: "getCopiesPerGame",
+            id: id
+        };
+        return copyService.query(action).length;
     };
 
 });

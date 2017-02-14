@@ -1,5 +1,8 @@
-﻿<div ng-app="myApp" ng-controller="listFees">
-    <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
+﻿<p>
+    <a ui-sref="newClient" class="btn btn-default">New Client</a>
+    <a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a>
+</p>
+<div ng-app="myApp" ng-controller="listFees">
     <table class="table">
         <tr>
             <th>Fee #</th>
@@ -21,9 +24,8 @@
                 <i class="fa fa-times-circle fa-3x" aria-hidden="true" ng-show="!f.Paid"></i>
                 <i class="fa fa-check-circle fa-3x" aria-hidden="true" ng-show="f.Paid"></i></td>
             <td>
-                <a class="btn btn-warning" ng-click="payFee(f.FeeID)" ng-show="!f.Paid" disabled><i class="fa fa-check-square" aria-hidden="true"></i>Pay Fee</a>
-                <a class="btn btn-warning" ng-click="payFee(f.FeeID)" ng-show="f.Paid"><i class="fa fa-check-square" aria-hidden="true"></i>Pay Fee</a>
-                <a class="btn btn-danger" ng-click="deleteFee(f.FeeID)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
+                <a class="btn btn-warning" ng-click="payFee(f.FeeID)" ng-disabled="f.Paid ==true"><i class="fa fa-check-square" aria-hidden="true"></i> Pay Fee</a>
+                <a class="btn btn-danger" ng-click="deleteFee(f.FeeID)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
             </td>
         </tr>
     </table>

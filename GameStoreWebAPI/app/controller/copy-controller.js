@@ -1,28 +1,30 @@
 ﻿app.controller('listCopies', function ($scope, copyService) {
-    var chaveBusca = {
+    var action = {
         action: "getCopies"
     };
-    copyService.query(chaveBusca,
+    copyService.query(action,
         //success
         function (retorno) {
             $scope.copies = retorno;
+            $scope.totalItems = retorno.length;
         },
         //error
         function (erro) {
             console.log(erro);
         });
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
 
 });
 
 app.controller('listCopiesPerGame', function ($scope, copyService, $stateParams) {
-    var chaveBusca = {
+    var action = {
         action: "getCopiesPerGame",
         id: $stateParams.id
     };
-    copyService.query(chaveBusca,
+    copyService.query(action,
         //success
         function (retorno) {
-            console.log("CopiesPerGame", retorno);
             $scope.copies = retorno;
         },
         //error
