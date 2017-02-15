@@ -182,6 +182,7 @@
     <Content Include="app\controller\modal-controller.js" />
     <Content Include="app\controller\publisher-controller.js" />
     <Content Include="app\controller\rental-controller.js" />
+    <Content Include="app\filter\start-from.js" />
     <Content Include="app\services\client-service.js" />
     <Content Include="app\services\copy-service.js" />
     <Compile Include="App_Start\BundleConfig.cs" />

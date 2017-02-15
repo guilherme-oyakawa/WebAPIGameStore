@@ -3,6 +3,7 @@
     <a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a>
 </p>
 <div ng-app="myApp" ng-controller="listClients">
+    <label>Search active users only: <input type="checkbox" ng-model="activeFilter" checked /></label>
     <table class="table">
         <tr>
             <th>
@@ -16,7 +17,7 @@
             </th>
         </tr>
 
-        <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName']">
+        <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName'] | filter: (activeFilter || '') && {Active: true}">
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
             <td>

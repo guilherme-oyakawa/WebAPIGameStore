@@ -2,18 +2,18 @@
     var action = {
         action: "getGames"
     };
+
+    var games;
+
     gameService.query(action,
         function (retorno) {
             $scope.games = retorno;
+            games = retorno;
             $scope.totalItems = retorno.length;
         },
         function (erro) {
             console.log(erro);
         });
-
-    $scope.itemsPerPage = 10;
-    $scope.currentPage = 1;
-
 
     $scope.deleteGame = function (id) {
         action = {
@@ -37,7 +37,6 @@
                         console.log(erro);
                     });
                 };
-                $timeout("", 500);
                 $state.reload();
             });
         });
@@ -50,6 +49,12 @@
         };
         return copyService.query(action).length;
     };
+
+    //Pagination
+
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
+
 
 });
 

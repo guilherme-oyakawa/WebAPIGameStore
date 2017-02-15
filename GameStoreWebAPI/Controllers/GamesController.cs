@@ -33,7 +33,7 @@ namespace GameStoreWebAPI.Controllers
         {
             var query = from g in rep.GetGames()
                         select g.toDTO();
-            return query;
+            return query.OrderBy(g=> g.Title);
         }
 
         // GET: api/Games/5

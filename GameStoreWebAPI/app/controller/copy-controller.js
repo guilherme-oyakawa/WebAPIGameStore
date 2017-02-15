@@ -23,11 +23,11 @@ app.controller('listCopiesPerGame', function ($scope, copyService, $stateParams)
         id: $stateParams.id
     };
     copyService.query(action,
-        //success
+
         function (retorno) {
             $scope.copies = retorno;
         },
-        //error
+
         function (erro) {
             console.log(erro);
         });
