@@ -6,50 +6,13 @@
     <!--<label>Title <input type="text" class="form-control" ng-model="search.Title" /></label>
     <label>Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
     <label>Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>-->
-   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="control-label">
-                        Search by Title
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    <label>Title <input type="text" class="form-control" ng-model="search.Title" /></label>
-                </div>
-            </div>
+    <uib-accordion>
+        <div uib-accordion-group class="panel-default" heading="Advanced Search" is-open="false">
+            <label>Search by Title <input type="text" class="form-control" ng-model="search.Title" /></label>
+            <label>Search by Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
+            <label>Search by Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                    <a class="collapsed control-label" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
-                        Search by Publisher
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    <label>Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed control-label" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Search by Genre
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    <label>Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>
-                </div>
-            </div>
-        </div>
-    </div>
+    </uib-accordion>
 
 
     <div>
@@ -77,14 +40,15 @@
                 <td>{{g.Value | currency:"$":2}}</td>
 
                 <td>
-                    <a class="btn btn-default" ng-click="getCopiesPerGame(g.GameID)"><i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>
-                    <!--<a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})"><i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>-->
-                    <a class="btn btn-default" ui-sref="game({id: g.GameID})"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                    <a class="btn btn-danger" ng-click="deleteGame(g.GameID)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                    <!--<a class="btn btn-default" ng-click="getCopiesPerGame(g.GameID)"><i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>-->
+                    <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})"> <i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>
+                    <a class="btn btn-default" ui-sref="game({id: g.GameID})"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                    <a class="btn btn-danger" ng-click="deleteGame(g.GameID)"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
                 </td>
 
             </tr>
         </table>
         <ul uib-pagination boundary-links="true" total-items="totalItems" max-size="numPages" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+        <p>showing {{totalItems < itemsPerPage ? totalItems : itemsPerPage}} of {{totalItems}} entries</p>
    </div>
 </div>

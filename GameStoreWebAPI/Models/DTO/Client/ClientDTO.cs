@@ -10,5 +10,11 @@ namespace GameStoreWebAPI.Models.DTO.Client {
         public string LastName;
         public DateTime BirthDate;
         public bool Active;
+
+        public string FullName {
+            get {
+                return this.FirstMidName + " " + this.LastName;
+            }
+        }
     }
 }

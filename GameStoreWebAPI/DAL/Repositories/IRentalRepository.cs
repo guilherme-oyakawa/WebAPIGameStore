@@ -17,6 +17,8 @@ namespace GameStoreWebAPI.DAL.Repositories
 
         Rental GetRentalByID(int? RentalID);
 
+        Task<Copy> GetCopyAsync(int id);
+
         Task<Rental> GetRentalAsync(int id);
         IEnumerable<Client> GetClientsWithRentals();
 
@@ -29,6 +31,8 @@ namespace GameStoreWebAPI.DAL.Repositories
         void InsertRental(Rental Rental);
         void DeleteRental(int RentalID);
         void UpdateRental(Rental Rental);
+
+        void UpdateCopy(Copy Copy);
         IEnumerable<Copy> GetAvailableCopies();
         //IEnumerable<Client> GetClients();
         IEnumerable<Client> GetActiveClients();

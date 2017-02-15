@@ -1,28 +1,6 @@
-﻿<!--
-<table class="table" ng-app="myApp" ng-controller="getGame">
-    <tr>
-        <th>Title</th>
-        <th>Publisher</th>
-        <th>Year</th>
-        <th>Rating</th>
-        <th>Suitable Age</th>
-        <th>Value</th>
-    </tr>
-
-    <tr>
-        <td>{{game.Title}}</td>
-        <td>{{game.Publisher.Name}}</td>
-        <td>{{game.Year}}</td>
-        <td>{{game.ESRB.Rating}}</td>
-        <td>{{game.ESRB.Age}}</td>
-        <td>{{game.Value | currency:"$":2}}</td>
-    </tr>
-
-</table>
--->
-<div ng-app="myApp" ng-controller="updateGame" class="form-horizontal">
+﻿<div ng-app="myApp" ng-controller="updateGame" class="form-horizontal">
     <p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
-    <form class="form-horizontal">
+    <form class="form-group">
 
         <div class="form-group">
             <label class="control-label col-md-2">Game ID: {{GameID}} </label>
@@ -53,7 +31,7 @@
         </div>
         <div class="form-group">
             <label class="control-label col-md-2">Value </label>
-            <input class="form-control col-md-10" ng-model="Value" />
+            <input class="form-control col-md-10" ng-model="Value" type="number" min="0" step="0.01" max="100"  />
         </div>
         <input class="btn btn-default" type="button" ng-click="updateGame()" value="Update Game" />
     </form>

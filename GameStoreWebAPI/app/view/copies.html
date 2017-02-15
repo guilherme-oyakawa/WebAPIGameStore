@@ -16,7 +16,7 @@
             </th>
         </tr>
 
-        <tr ng-repeat="c in copies.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy: 'GameTitle'">
+        <tr ng-repeat="c in copies | orderBy: 'GameTitle' | startFrom: (currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
             <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
             <td>{{c.CopyID}}</td>
             <td>
@@ -26,4 +26,5 @@
         </tr>
     </table>
     <ul uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    
 </div>

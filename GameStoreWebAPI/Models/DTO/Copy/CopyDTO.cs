@@ -17,5 +17,10 @@ namespace GameStoreWebAPI.Models.DTO.Copy {
         public int GenreID;
         public string GenreName;
 
+        public string FullTitle {
+            get {
+                return this.GameTitle + " (" + this.PublisherName + ", " + this.GameYear + ")";
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace GameStoreWebAPI.DAL.Repositories
     interface ICopyRepository: IDisposable
     {
         IEnumerable<Copy> GetCopies();
-
+        IEnumerable<Copy> GetAvailableCopies();
         IEnumerable<Copy> GetCopiesPerGame(int GameID);
 
         Copy GetCopyByID(int? CopyID);

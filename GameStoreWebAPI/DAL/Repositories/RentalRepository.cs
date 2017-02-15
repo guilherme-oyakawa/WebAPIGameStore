@@ -78,6 +78,10 @@ namespace GameStoreWebAPI.DAL.Repositories
             return await context.Rentals.FindAsync(id);
         }
 
+        public async Task<Copy> GetCopyAsync(int id) {
+            return await context.Copies.FindAsync(id);
+        }
+
         public void InsertRental(Rental Rental)
         {
             context.Rentals.Add(Rental);
@@ -94,6 +98,9 @@ namespace GameStoreWebAPI.DAL.Repositories
             context.Entry(Rental).State = EntityState.Modified;
         }
 
+        public void UpdateCopy(Copy Copy) {
+            context.Entry(Copy).State = EntityState.Modified;
+        }
 
         public void Save()
         {

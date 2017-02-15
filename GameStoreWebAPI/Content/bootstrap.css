@@ -4930,12 +4930,12 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2014/06/earth-wallpapers-5.jpg");
+  background-image: url("http://s1.picswalls.com/wallpapers/2016/06/16/awesome-earth-wallpaper_033131720_311.jpg");
   background-size:cover;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 2px;
+  margin-bottom: 2px;
   font-size: 21px;
-  font-weight: 200;
+  font-weight: 100;
   line-height: 2.1428571435;
   color: inherit;
   /*background:transparent;*/
@@ -4958,8 +4958,8 @@ a.list-group-item.active > .badge,
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .container .jumbotron {
     padding-right: 60px;

@@ -284,12 +284,12 @@
     <Content Include="app\view\modal\confirmDelete.html" />
     <Content Include="app\view\newClient.html" />
     <Content Include="app\view\newCopy.html" />
-    <Content Include="app\view\newFee.html" />
     <Content Include="app\view\newGame.html" />
     <Content Include="app\view\newGenre.html" />
     <Content Include="app\view\newPublisher.html" />
     <Content Include="app\view\newRental.html" />
     <Content Include="app\view\publishers.html" />
+    <Content Include="app\view\rental.html" />
     <Content Include="app\view\rentals.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.js" />

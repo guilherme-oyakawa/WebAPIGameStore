@@ -15,7 +15,18 @@ namespace GameStoreWebAPI.Models.DTO.Rental {
         public string ClientName;
 
         public int CopyID;
+        public int GameID;
         public string GameTitle;
-        
+        public decimal GameValue;
+
+        public decimal RentalFee() {
+            DateTime ret = DateTime.Now;
+            decimal value = 0;
+            if (DateTime.Compare(ret, this.DueDate) > 0) {
+                int delay = (ret - this.DueDate).Days;
+                value = this.GameValue * delay * 0.1m;
+            }
+            return value;
+        }
     }
 }

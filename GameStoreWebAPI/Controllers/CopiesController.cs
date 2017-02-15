@@ -32,7 +32,16 @@ namespace GameStoreWebAPI.Controllers
         {
             var query = from c in rep.GetCopies()
                         select c.toDTO();
-            return query;
+            return query.OrderBy(c => c.GameTitle);
+        }
+
+        // GET: api/Copies
+        [HttpGet]
+        [ActionName("getAvailableCopies")]
+        public IEnumerable<CopyDTO> GetAvailableCopies() {
+            var query = from c in rep.GetAvailableCopies()
+                        select c.toDTO();
+            return query.OrderBy(c=> c.GameTitle);
         }
 
         // GET: api/Copies/5

@@ -86,6 +86,28 @@ namespace GameStoreWebAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [HttpPut]
+        [ActionName("payFee")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> PayFee(int id) {
+            Fee fee = await rep.GetFeeAsync(id);
+            if(fee == null) {
+                return BadRequest();
+            }
+            fee.Paid = true;
+            rep.UpdateFee(fee);
+            try {
+                await rep.SaveAsync();
+            } catch (DbUpdateConcurrencyException) {
+                if (!FeeExists(id)) {
+                    return NotFound();
+                } else {
+                    throw;
+                }
+            }
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // POST: api/Fees
         [HttpPost]
         [ActionName("insertFee")]

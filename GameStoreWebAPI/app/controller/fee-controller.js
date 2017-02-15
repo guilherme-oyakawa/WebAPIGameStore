@@ -1,8 +1,8 @@
-﻿app.controller('listFees', function ($scope, feeService) {
-    var chaveBusca = {
+﻿app.controller('listFees', function ($scope, $state, $timeout, toaster, feeService) {
+    var action = {
         action: "getFees"
     };
-    feeService.query(chaveBusca,
+    feeService.query(action,
         //success
         function (retorno) {
             $scope.fees = retorno;
@@ -11,6 +11,24 @@
         function (erro) {
             console.log(erro);
         });
+
+    $scope.payFee = function (id) {
+        action = {
+            action: "payFee",
+            id: id
+        };
+        feeService.update(action,
+            function (retorno) {
+                console.log(retorno);
+            },
+            function (erro) {
+                console.log(erro);
+        });
+        toaster.pop('success', "Fee", "Fee paid.");
+        $timeout(500);
+        $state.reload();
+    };
+
 });
 
 app.controller('getFee', function ($scope, feeService) {

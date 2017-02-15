@@ -90,7 +90,11 @@ namespace GameStoreWebAPI.Models
                 CopyID = this.CopyID,
                 GameTitle = (this.Copy.Game.Title + " (" +
                                 this.Copy.Game.Year.Year + ", " +
-                                this.Copy.Game.Publisher.Name + ")")
+                                this.Copy.Game.Publisher.Name + ")"),
+
+                GameID = this.Copy.GameID,
+                GameValue = this.Copy.Game.Value
+
             };
             return dto;
         }

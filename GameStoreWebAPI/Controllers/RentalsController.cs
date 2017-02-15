@@ -127,7 +127,7 @@ namespace GameStoreWebAPI.Controllers
                 rep.InsertFee(fee);
                 await rep.SaveAsync();
             };
-
+            
             rep.UpdateRental(rental);
             await rep.SaveAsync();
 
@@ -137,7 +137,7 @@ namespace GameStoreWebAPI.Controllers
         // POST: api/Rentals
         [HttpPost]
         [ActionName("insertRental")]
-        [ResponseType(typeof(Rental))]
+        [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PostRental(Rental rental)
         {
             if (!ModelState.IsValid)
@@ -145,9 +145,17 @@ namespace GameStoreWebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+            //Take the copy
+            Copy copy = await rep.GetCopyAsync(rental.CopyID);
+            copy.Available = false;
+            rep.UpdateCopy(copy);
+            await rep.SaveAsync();
+
+            //creates rental
             rep.InsertRental(rental);
             await rep.SaveAsync();
-            return CreatedAtRoute("DefaultApi", new { id = rental.RentalID }, rental);
+
+            return Ok();
         }
 
         // DELETE: api/Rentals/5

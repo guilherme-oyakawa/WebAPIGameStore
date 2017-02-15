@@ -22,6 +22,14 @@ namespace GameStoreWebAPI.DAL.Repositories
             return context.Copies.ToList();
         }
 
+        public IEnumerable<Copy> GetAvailableCopies() {
+            var query = from copy in context.Copies
+                        where copy.Available == true
+                        orderby copy.Game.Title
+                        select copy;
+            return query.ToList();
+        }
+
         public IEnumerable<Copy> GetCopiesPerGame(int GameID) {
             var query = from c in context.Copies
                         where c.GameID == GameID
