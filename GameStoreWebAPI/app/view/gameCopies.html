@@ -1,6 +1,6 @@
 ﻿<div ng-controller="listCopiesPerGame">
     <p><a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a></p>
-    <table class="table">
+    <table class="table" ng-show="copies.length > 0">
         <tr>
             <th>
                 Title
@@ -16,9 +16,12 @@
         <tr ng-repeat="c in copies | orderBy: 'GameTitle'">
             <td>{{c.GameTitle}} ({{c.PublisherName}}, {{c.GameYear}})</td>
             <td>{{c.CopyID}}</td>
-            <td>{{c.Available}}</td>
+            <td>
+                <i class="fa fa-times-circle fa-3x" aria-hidden="true" ng-show="!c.Available"></i>
+                <i class="fa fa-check-circle fa-3x" aria-hidden="true" ng-show="c.Available"></i>
+            </td>
         </tr>
     </table>
-    <h2 ng-show="copies.length ==0"> No copies available!</h2>
+    <h2 ng-show="copies.length == 0"> No copies available!</h2>
 </div>
 <p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>

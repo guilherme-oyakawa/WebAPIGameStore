@@ -97,7 +97,7 @@ app.controller('insertCopy', function ($scope, $state, toaster, copyService, gam
                 function (erro) {
                     console.log(erro);
                 });
-        };
+        }
         toaster.pop("success", "New Copies", "Copies added to database.");
         $state.go('copies');
     };

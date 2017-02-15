@@ -1,5 +1,4 @@
-﻿<p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
-<!--
+﻿<!--
 <table class="table" ng-app="myApp" ng-controller="getGame">
     <tr>
         <th>Title</th>
@@ -22,33 +21,40 @@
 </table>
 -->
 <div ng-app="myApp" ng-controller="updateGame" class="form-horizontal">
-    <form>
+    <p><a ui-sref="games" class="btn btn-default">Back to Games</a></p>
+    <form class="form-horizontal">
 
         <div class="form-group">
-            <label>Game ID: {{GameID}} </label>
+            <label class="control-label col-md-2">Game ID: {{GameID}} </label>
         </div>
         <div class="form-group">
-            <label>Title <input class="form-control" type="text" ng-model="Title" ng-required="true" /></label>
+            <label class="control-label col-md-2">Title </label>
+            <input class="form-control col-md-10" type="text" ng-model="Title" ng-required="true" />
         </div>
         <div class="form-group">
-            <label>Genre <select class="form-control" ng-model="GenreID" ng-options="genre.GenreID as genre.Name for genre in genres" ng-required="true"></select></label>
+            <label class="control-label col-md-2">Genre </label>
+            <select class="form-control col-md-10" ng-model="GenreID" ng-options="genre.GenreID as genre.Name for genre in genres" ng-required="true"></select>
         </div>
         <div class="form-group">
-            <label>Publisher <select class="form-control" ng-model="PublisherID" ng-options="publisher.PublisherID as publisher.Name for publisher in publishers" ng-required="true"></select></label>
+            <label class="control-label col-md-2">Publisher </label>
+            <select class="form-control col-md-10" ng-model="PublisherID" ng-options="publisher.PublisherID as publisher.Name for publisher in publishers" ng-required="true"></select>
         </div>
         <div class="form-group">
-            <label>Rating <select class="form-control" ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings"></select></label>
+            <label class="control-label col-md-2">Rating </label>
+            <select class="form-control col-md-10" ng-model="ESRBID" ng-options="rating.ESRBID as rating.Description for rating in ratings"></select>
         </div>
         <div class="form-group">
-            <label>Release Date</label>
-            <div uib-datepicker ng-model="YearDate" class="well well-sm" datepicker-options="options"></div>
+            <label class="control-label col-md-2">Release Date</label>
+            <div uib-datepicker ng-model="YearDate" class="well well-sm col-md-10" datepicker-options="options"></div>
         </div>
         <div class="form-group">
-            <label>Description <input class="form-control" type="text" ng-model="Description" ng-required="true" /></label>
+            <label class="control-label col-md-2">Description </label>
+            <input class="form-control col-md-10" type="text" ng-model="Description" ng-required="true" />
         </div>
         <div class="form-group">
-            <label>Value <input ng-model="Value" /></label>
+            <label class="control-label col-md-2">Value </label>
+            <input class="form-control col-md-10" ng-model="Value" />
         </div>
         <input class="btn btn-default" type="button" ng-click="updateGame()" value="Update Game" />
-</form>
+    </form>
 </div>

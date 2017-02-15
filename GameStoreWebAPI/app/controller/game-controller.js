@@ -1,14 +1,13 @@
-﻿app.controller('listGames', function ($scope, $state, $timeout, toaster, gameService, copyService, ModalService) {
+﻿app.controller('listGames', function ($scope, $state, $timeout, $filter, toaster, gameService, copyService, ModalService) {
     var action = {
         action: "getGames"
     };
 
-    var games;
-
+    $scope.filtered = new Array(0);
     gameService.query(action,
         function (retorno) {
             $scope.games = retorno;
-            games = retorno;
+            $scope.filtered = retorno;
             $scope.totalItems = retorno.length;
         },
         function (erro) {
@@ -23,7 +22,7 @@
 
         ModalService.showModal({
             templateUrl: "../app/view/modal/confirmDelete.html",
-            controller: 'modalController',
+            controller: 'modalController'
         }).then(function(modal) {
             modal.element.modal();
             modal.close.then(function(result) {
@@ -36,7 +35,7 @@
                     function (erro) {
                         console.log(erro);
                     });
-                };
+                }
                 $state.reload();
             });
         });
@@ -47,14 +46,31 @@
             action: "getCopiesPerGame",
             id: id
         };
-        return copyService.query(action).length;
+        copyService.query(action,
+        function (retorno) {
+        });
     };
 
     //Pagination
 
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
+    $scope.numPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
 
+    filterGame = function (games, filter) {
+        return $filter('filter')($scope.games, $scope.search);
+    };
+
+    $scope.$watch('search', function () {
+        $scope.filtered = filterGame($scope.games, $scope.search);
+        if ($scope.filtered != null) {
+            console.log("Filtered Items", $scope.filtered);
+            $scope.totalItems = $scope.filtered.length;
+            //console.log("Length", $scope.totalItems);
+            $scope.numPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
+        }
+    }, true
+    );
 
 });
 
@@ -133,7 +149,7 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
         gameService.update(action, newGame,
             function (retorno) {
                 $scope.gameUpdated = retorno;
-                toaster.pop('warning', "Edit", ("Game #" + $scope.GameID + "("+ $scope.Title +")" + " Updated."));
+                toaster.pop('warning', "Edit", "Game #" + $scope.GameID + "("+ $scope.Title +")" + " Updated.");
                 $state.go('games');
                 
             },
@@ -194,7 +210,7 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
         gameService.save(action, game,
             function (retorno) {
                 //$scope.gameAdded = retorno;
-                toaster.pop('success', "Create", ("New game Created."));
+                toaster.pop('success', "Create", "New game Created.");
                 $state.go('games');
             },
             function (erro) {
