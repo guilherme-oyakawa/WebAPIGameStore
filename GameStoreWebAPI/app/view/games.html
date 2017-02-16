@@ -40,7 +40,6 @@
                 <td>{{g.Value | currency:"$":2}}</td>
 
                 <td>
-                    <!--<a class="btn btn-default" ng-click="getCopiesPerGame(g.GameID)"><i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>-->
                     <a class="btn btn-default" ui-sref="gameCopies({id: g.GameID})"> <i class="fa fa-info-circle" aria-hidden="true"></i> Check Copies</a>
                     <a class="btn btn-default" ui-sref="game({id: g.GameID})"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
                     <a class="btn btn-danger" ng-click="deleteGame(g.GameID)"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>

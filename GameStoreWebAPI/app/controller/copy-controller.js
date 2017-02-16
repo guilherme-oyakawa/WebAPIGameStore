@@ -92,7 +92,7 @@ app.controller('insertCopy', function ($scope, $state, toaster, copyService, gam
         for (var i = 0; i < $scope.numberOfCopies; i++) {
             copyService.save(action, copy,
                 function (retorno) {
-                    $scope.copyAdded = retorno;
+                    console.log(retorno);
                 },
                 function (erro) {
                     console.log(erro);

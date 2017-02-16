@@ -15,7 +15,7 @@
             <th>Actions</th>
         </tr>
 
-        <tr ng-repeat="r in rentals | orderBy: 'ReturnedOn' : reverse=true">
+        <tr ng-repeat="r in rentals | orderBy: 'ReturnedOn' : reverse=true | startFrom:(currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
             <td>{{r.RentalID}}</td>
             <td>{{r.GameTitle}}</td>
             <td>{{r.ClientName}}</td>
@@ -29,6 +29,7 @@
                 <a class="btn btn-danger" ng-click="deleteRental(r.RentalID)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
             </td>
         </tr>
-
     </table>
+    <ul uib-pagination boundary-links="true" total-items="totalItems" max-size="numPages" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    <p>showing {{totalItems < itemsPerPage ? totalItems : itemsPerPage}} of {{totalItems}} entries</p>
 </div>

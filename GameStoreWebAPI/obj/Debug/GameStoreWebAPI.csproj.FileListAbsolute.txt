@@ -62,3 +62,4 @@ C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\G
 C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.pdb
 C:\Users\guilherme.masao\documents\visual studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\Swashbuckle.Core.dll
 C:\Users\guilherme.masao\documents\visual studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\bin\WebActivatorEx.dll
+C:\Users\guilherme.masao\documents\visual studio 2015\Projects\GameStoreWebAPI\GameStoreWebAPI\obj\Debug\GameStoreWebAPI.csprojResolveAssemblyReference.cache

@@ -5,6 +5,7 @@
     rentalService.query(action,
         function (retorno) {
             $scope.rentals = retorno;
+            $scope.totalItems = retorno.length;
         },
         function (erro) {
             console.log(erro);
@@ -23,6 +24,13 @@
                 console.log(erro);
             });
     };
+
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
+
+    console.log($scope.itemsPerPage);
+    console.log($scope.currentPage);
+
 });
 
 app.controller('getRental', function ($scope, rentalService) {
@@ -102,8 +110,10 @@ app.controller('updateRental', function ($scope, $stateParams, $state, $timeout,
             function (erro) {
                 console.log(erro);
             });
-        $timeout(500);
-        $state.go('rentals');
+        $timeout(function () {
+            $state.go('rentals');
+        }, 500);
+        
     };
 });
 
@@ -147,8 +157,9 @@ app.controller('insertRental', function ($scope, $state, $timeout, toaster, rent
             function (erro) {
                 console.log(erro);
             });
-        $timeout(500);
-        $state.go('rentals');
+        $timeout(function () {
+            $state.go('rentals');
+        }, 500);
     };
 });
 

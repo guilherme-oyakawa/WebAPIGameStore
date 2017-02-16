@@ -14,7 +14,7 @@
             <th>Actions</th>
         </tr>
 
-        <tr ng-repeat="f in fees | orderBy: 'Paid'">
+        <tr ng-repeat="f in fees | orderBy: 'Paid' | startFrom:(currentPage-1)*itemsPerPage | limitTo: itemsPerPage">
             <td>{{f.FeeID}}</td>
             <td>{{f.Client}}</td>
             <td>{{f.Title}}</td>
@@ -30,4 +30,6 @@
             </td>
         </tr>
     </table>
+    <ul uib-pagination boundary-links="true" total-items="totalItems" max-size="numPages" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    <p>showing {{totalItems < itemsPerPage ? totalItems : itemsPerPage}} of {{totalItems}} entries</p>
 </div>

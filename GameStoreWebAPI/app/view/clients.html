@@ -21,9 +21,9 @@
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
             <td>
-                <a class="btn-sm btn-block btn-default " ui-sref="client({id: c.ClientID})"><i class="fa fa-info-circle"aria-hidden="true"></i> Edit</a>
-                <a class="btn-sm btn-block btn-danger " ng-show="c.Active" ng-click="Deactivate(c.ClientID)"><i class="fa fa-ban" aria-hidden="true"></i> Deactivate</a>
-                <a class="btn-sm btn-block btn-success " ng-show="!c.Active" ng-click="Activate(c.ClientID)"><i class="fa fa-check" aria-hidden="true"></i> Activate  </a>
+                <a class="btn-sm btn-block btn-default " ui-sref="client({id: c.ClientID})"> Edit <i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                <a class="btn-sm btn-block btn-danger " ng-show="c.Active" ng-click="Deactivate(c.ClientID)"> Deactivate <i class="fa fa-ban" aria-hidden="true"></i></a>
+                <a class="btn-sm btn-block btn-success " ng-show="!c.Active" ng-click="Activate(c.ClientID)"> Activate  <i class="fa fa-check" aria-hidden="true"></i></a>
             </td>
         </tr>
     </table>

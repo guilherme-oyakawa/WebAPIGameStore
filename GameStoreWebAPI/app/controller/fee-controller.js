@@ -6,6 +6,7 @@
         //success
         function (retorno) {
             $scope.fees = retorno;
+            $scope.totalItems = retorno.length;
         },
         //error
         function (erro) {
@@ -28,6 +29,10 @@
         $timeout(500);
         $state.reload();
     };
+
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
+
 
 });
 

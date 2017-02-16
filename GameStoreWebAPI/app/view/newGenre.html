@@ -1,15 +1,16 @@
 ﻿<p><a ui-sref="genres" class="btn btn-default">Back to Genres</a></p>
-<div ng-app="myApp" ng-controller="insertGenre" class="form-horizontal">
-    <form>
+<div ng-app="myApp" ng-controller="insertGenre" >
+    <form class="form-horizontal">
 
         <div class="form-group">
-            <label>New Game</label>
+            <label class="control-label col-md-2">New Game</label>
         </div>
 
         <div class="form-group">
-            <label>Genre Name <input type="text" ng-model="GenreName" ng-required="true" /></label>
+            <label class="control-label col-md-2">Genre Name </label>
+            <input class="form-control col-md-10" type="text" ng-model="GenreName" ng-required="true" />
         </div>
 
-        <input type="button" ng-click="insertGenre()" value="Insert Game" />
+        <input type="button" class="btn btn-success" ng-click="insertGenre()" value="Insert Genre" />
     </form>
 </div>

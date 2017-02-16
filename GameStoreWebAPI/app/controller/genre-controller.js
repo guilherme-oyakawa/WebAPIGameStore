@@ -32,8 +32,10 @@
                          console.log(erro);
                      });
                  };
-                 $timeout("", 500);
-                 $state.reload();
+                 $timeout(function(){
+                     $state.reload();
+                 },500);
+                 
              });
          });
 

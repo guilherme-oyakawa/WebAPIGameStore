@@ -32,8 +32,10 @@
                         console.log(erro);
                     });
                 };
-                $timeout("", 500);
-                $state.go('publishers');
+                $timeout(function () {
+                    $state.go('publishers');
+                }, 500);
+                
             });
         });
 

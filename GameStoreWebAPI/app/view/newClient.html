@@ -1,22 +1,24 @@
 ﻿<p><a ui-sref="clients" class="btn btn-default">Back to Clients</a></p>
-<div ng-app="myApp" ng-controller="insertClient" class="form-horizontal">
-    <form>
+<div ng-app="myApp" ng-controller="insertClient">
+    <form class="form-horizontal">
         <div class="form-group">
-            <label> New Client</label>
+            <label class="control-label col-md-2"> New Client</label>
         </div>
 
         <div class="form-group">
-            <label>First/Middle name <input type="text" ng-model="FirstMidName" ng-required="true" /></label>
+            <label class="control-label col-md-2">First/Middle name </label>
+            <input class="form-control col-md-10" type="text" ng-model="FirstMidName" ng-required="true" />
         </div>
 
         <div class="form-group">
-            <label>Last name <input type="text" ng-model="LastName" ng-required="true" /></label>
+            <label class="control-label col-md-2">Last name </label>
+            <input class="form-control col-md-10" type="text" ng-model="LastName" ng-required="true" />
         </div>
 
         <div class="form-group">
-            <label>Birth Date</label>
+            <label class="control-label col-md-2">Birth Date</label>
             <div uib-datepicker ng-model="BirthDate" class="well well-sm" datepicker-options="options"></div>
         </div>
-        <input type="button" ng-click="insertClient()" value="Create Client" />
+        <input type="button" class="btn btn-success" ng-click="insertClient()" value="Insert Client" />
     </form>
 </div>

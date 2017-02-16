@@ -55,7 +55,7 @@
 
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
-    console.log($scope.numPages);
+
     filterGame = function (games, filter) {
         return $filter('filter')($scope.games, $scope.search);
     };
@@ -63,9 +63,7 @@
     $scope.$watch('search', function () {
         $scope.filtered = filterGame($scope.games, $scope.search);
         if ($scope.filtered != null) {
-            //console.log("Filtered Items", $scope.filtered);
             $scope.totalItems = $scope.filtered.length;
-            //console.log("Length", $scope.totalItems);
             $scope.numPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
         }
     }, true
