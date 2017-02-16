@@ -32,9 +32,6 @@
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
 
-    console.log($scope.itemsPerPage);
-    console.log($scope.currentPage);
-
 });
 
 app.controller('getRental', function ($scope, rentalService) {

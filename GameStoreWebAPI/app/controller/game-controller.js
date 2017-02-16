@@ -65,12 +65,13 @@
     $scope.$watch('search', function () {
         $scope.filtered = filterGame($scope.games, $scope.search);
         if ($scope.filtered != null) {
+            console.log("Filtered Items", $scope.filtered);
             $scope.totalItems = $scope.filtered.length;
+            console.log("Length", $scope.totalItems);
             $scope.numPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
         }
     }, true
     );
-
 });
 
 app.controller('getGame', function ($scope, gameService, $stateParams) {
@@ -210,7 +211,6 @@ app.controller('insertGame', function ($scope, $stateParams, $state, $timeout, g
 
         gameService.save(action, game,
             function (retorno) {
-                //$scope.gameAdded = retorno;
                 toaster.pop('success', "Create", "New game Created.");
                 $timeout(function () {
                     $state.go('games');

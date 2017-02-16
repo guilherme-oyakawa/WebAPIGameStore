@@ -6,7 +6,6 @@
         function (retorno) {
             $scope.clients = retorno;
             $scope.totalItems = retorno.length;
-            console.log("# of clients", $scope.totalItems);
         },
         function (erro) {
             console.log(erro);

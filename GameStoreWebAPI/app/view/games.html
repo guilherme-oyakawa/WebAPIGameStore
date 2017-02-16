@@ -1,18 +1,26 @@
-﻿<p>
-    <a ui-sref="newGame" class="btn btn-default ">New Game</a>
-    <a class="btn btn-info" ui-sref="home">Back to Menu &raquo;</a>
-</p>
+﻿
 <div ng-app="myApp" ng-controller="listGames">
     <!--<label>Title <input type="text" class="form-control" ng-model="search.Title" /></label>
     <label>Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
     <label>Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>-->
-    <uib-accordion>
+    <!--<uib-accordion>
         <div uib-accordion-group class="panel-default" heading="Advanced Search" is-open="false">
             <label>Search by Title <input type="text" class="form-control" ng-model="search.Title" /></label>
             <label>Search by Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
             <label>Search by Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>
         </div>
-    </uib-accordion>
+    </uib-accordion>-->
+    <p>
+        <a ui-sref="newGame" class="btn btn-default ">New Game</a>
+        <button type="button" class="btn btn-info" ng-click="isCollapsed = !isCollapsed">Advanced Search</button>
+    </p>
+    
+    <hr>
+    <div uib-collapse="!isCollapsed">
+        <label>Search by Title <input type="text" class="form-control" ng-model="search.Title" /></label>
+        <label>Search by Publisher <input type="text" class="form-control" ng-model="search.PublisherName" /></label>
+        <label>Search by Genre <input class="form-control" type="text" ng-model="search.GenreName" /></label>
+    </div>
 
 
     <div>
