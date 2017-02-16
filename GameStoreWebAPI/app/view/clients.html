@@ -18,8 +18,8 @@
         </tr>
 
         <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName'] | startFrom:(currentPage-1)*itemsPerPage | limitTo: itemsPerPage | filter: (activeFilter || '') && {Active: true}">
-            <td>{{c.FirstMidName}} {{c.LastName}}</td>
-            <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
+            <td><h4>{{c.FirstMidName}} {{c.LastName}}</h4></td>
+            <td><h4>{{c.BirthDate | date: 'dd/MM/yyyy'}}</h4></td>
             <td>
                 <a class="btn btn-block btn-default " ui-sref="client({id: c.ClientID})"><i class="fa fa-info-circle" aria-hidden="true"></i> Edit </a>
                 <a class="btn btn-block btn-danger " ng-show="c.Active" ng-click="Deactivate(c.ClientID)"><i class="fa fa-ban" aria-hidden="true"></i> Deactivate </a>
