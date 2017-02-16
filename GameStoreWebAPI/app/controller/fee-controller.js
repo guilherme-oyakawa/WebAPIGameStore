@@ -26,8 +26,9 @@
                 console.log(erro);
         });
         toaster.pop('success', "Fee", "Fee paid.");
-        $timeout(500);
-        $state.reload();
+        $timeout(function () {
+            $state.reload();
+        }, 500);
     };
 
     $scope.itemsPerPage = 10;
@@ -71,7 +72,7 @@ app.controller('updateFee', function ($scope, feeService) {
     };
 });
 
-app.controller('insertFee', function ($scope, feeService) {
+app.controller('insertFee', function ($scope, $state, $timeout, toaster, feeService) {
     var action = { action: "insertFee" };
     var fee = {
         FeeID: $scope.FeeID,
@@ -87,6 +88,10 @@ app.controller('insertFee', function ($scope, feeService) {
             function (erro) {
                 console.log(erro);
             });
+        toaster.pop('success', "Fee", "Fee paid.");
+        $timeout(function () {
+            $state.reload();
+        }, 500);
     };
 });
 

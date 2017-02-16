@@ -69,7 +69,7 @@ app.controller('updateCopy', function ($scope, copyService) {
 });
 
 
-app.controller('insertCopy', function ($scope, $state, toaster, copyService, gameService) {
+app.controller('insertCopy', function ($scope, $state, $timeout, toaster, copyService, gameService) {
     var action = {
         action:'getGames'
     };
@@ -99,7 +99,9 @@ app.controller('insertCopy', function ($scope, $state, toaster, copyService, gam
                 });
         }
         toaster.pop("success", "New Copies", "Copies added to database.");
-        $state.go('copies');
+        $timeout(function(){
+            $state.go('copies');
+        }, 500);
     };
 });
 

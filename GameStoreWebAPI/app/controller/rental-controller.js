@@ -1,4 +1,4 @@
-﻿app.controller('listRentals', function ($scope, rentalService) {
+﻿app.controller('listRentals', function ($scope, $timeout, $state, toaster, rentalService) {
     var action = {
         action: "getRentals"
     };
@@ -23,6 +23,10 @@
             function (erro) {
                 console.log(erro);
             });
+        toaster.pop("success", "Return", "Returned successfully.");
+        $timeout(function () {
+            $state.reload();
+        }, 500);
     };
 
     $scope.itemsPerPage = 10;
@@ -160,18 +164,5 @@ app.controller('insertRental', function ($scope, $state, $timeout, toaster, rent
         $timeout(function () {
             $state.go('rentals');
         }, 500);
-    };
-});
-
-app.controller('deleteRental', function ($scope, rentalService) {
-    var action = { action: 'deleteRental' };
-    $scope.deleteRental = function () {
-        rentalService.remove(action, { id: $scope.RentalID },
-        function (retorno) {
-            $scope.rentalDeleted = retorno;
-        },
-        function (erro) {
-            console.log(erro);
-        });
     };
 });

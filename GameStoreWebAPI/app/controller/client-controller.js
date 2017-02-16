@@ -5,6 +5,8 @@
     clientService.query(action,
         function (retorno) {
             $scope.clients = retorno;
+            $scope.totalItems = retorno.length;
+            console.log("# of clients", $scope.totalItems);
         },
         function (erro) {
             console.log(erro);
@@ -32,6 +34,8 @@
         });
     };
 
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
 
 });
 
@@ -47,32 +51,6 @@ app.controller('getClient', function ($scope, clientService) {
             });
     };
 });
-
-/*
-app.controller('testGet', function ($scope, clientService) {
-    var action = { action: "getClient"};
-    clientService.get(action, { id:7 },
-            function (retorno) {
-                $scope.client = retorno;
-                console.log(retorno);
-            },
-            function (erro) {
-                console.log(erro);
-            });
-});
-
-
-app.controller('testDelete', function ($scope, clientService) {
-    var action = { action: 'deleteClient' };
-   clientService.remove(action, { id: 9},
-        function (retorno) {
-            $scope.clientDeleted = retorno;
-        },
-        function (erro) {
-            console.log(erro);
-        });
-});
-*/
 
 app.controller('updateClient', function ($scope, $stateParams, $state, $timeout, toaster, clientService) {
     var action = {

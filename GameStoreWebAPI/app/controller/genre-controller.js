@@ -56,7 +56,7 @@ app.controller('getGenre', function ($scope, genreService) {
     };
 });
 
-app.controller('insertGenre', function ($scope, $state, toaster, genreService) {
+app.controller('insertGenre', function ($scope, $state, $timeout, toaster, genreService) {
     var action = { action: "insertGenre" };
     $scope.GenreName;
     $scope.insertGenre = function () {
@@ -64,23 +64,12 @@ app.controller('insertGenre', function ($scope, $state, toaster, genreService) {
             function (retorno) {
                 $scope.genreAdded = retorno;
                 toaster.pop('success', "Create", ("New Genre Created "+"(" + $scope.GenreName + ")"));
-                $state.go('genres');
+                $timeout(function () {
+                    $state.go('genres');
+                }, 500);
             },
             function (erro) {
                 console.log(erro);
             });
-    };
-});
-
-app.controller('deleteGenre', function ($scope, genreService) {
-    var action = { action: "deleteGenre" };
-    var deleteGenre = function ($scope) {
-        genreService.remove(action, { id: $scope.GenreID },
-        function (retorno) {
-            $scope.genreDeleted = retorno;
-        },
-        function (erro) {
-            console.log(erro);
-        });
     };
 });

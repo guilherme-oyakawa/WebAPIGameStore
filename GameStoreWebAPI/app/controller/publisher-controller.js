@@ -33,7 +33,7 @@
                     });
                 };
                 $timeout(function () {
-                    $state.go('publishers');
+                    $state.reload();
                 }, 500);
                 
             });
@@ -56,7 +56,7 @@ app.controller('getPublisher', function ($scope, publisherService) {
     };
 });
 
-app.controller('insertPublisher', function ($scope, $state, toaster, publisherService) {
+app.controller('insertPublisher', function ($scope, $state, $timeout, toaster, publisherService) {
     var action = { action: "insertPublisher" };
     $scope.PublisherName;
     $scope.insertPublisher = function () {
@@ -64,23 +64,12 @@ app.controller('insertPublisher', function ($scope, $state, toaster, publisherSe
             function (retorno) {
                 //$scope.PublisherAdded = retorno;
                 toaster.pop('success', "Create", ("New Genre Created " + "(" + $scope.PublisherName + ")"));
-                $state.go('publishers');
+                $timeout(function(){
+                    $state.go('publishers');
+                },500);
             },
             function (erro) {
                 console.log(erro);
             });
-    };
-});
-
-app.controller('deletePublisher', function ($scope, publisherService) {
-    var action = { action: 'deletePublisher' };
-    var deletePublisher = function ($scope) {
-        publisherService.remove(action, { id: $scope.PublisherID },
-        function (retorno) {
-            $scope.publisherDeleted = retorno;
-        },
-        function (erro) {
-            console.log(erro);
-        });
     };
 });

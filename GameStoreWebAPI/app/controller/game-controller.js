@@ -36,7 +36,9 @@
                         console.log(erro);
                     });
                 }
-                $state.reload();
+                $timeout(function () {
+                    $state.reload();
+                }, 500);
             });
         });
     };
@@ -82,7 +84,7 @@ app.controller('getGame', function ($scope, gameService, $stateParams) {
         });
 });
 
-app.controller('updateGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService, toaster) {
+app.controller('updateGame', function ($scope, $stateParams, $state, $timeout, gameService, ratingService, publisherService, genreService, toaster) {
 
     var game;
     var action = {action: "getGame"};
@@ -147,7 +149,9 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
             function (retorno) {
                 $scope.gameUpdated = retorno;
                 toaster.pop('warning', "Edit", "Game #" + $scope.GameID + "("+ $scope.Title +")" + " Updated.");
-                $state.go('games');
+                $timeout(function () {
+                    $state.go('games');
+                }, 500);
                 
             },
             function (erro) {
@@ -156,7 +160,7 @@ app.controller('updateGame', function ($scope, $stateParams, $state, gameService
     };
 });
 
-app.controller('insertGame', function ($scope, $stateParams, $state, gameService, ratingService, publisherService, genreService, toaster) {
+app.controller('insertGame', function ($scope, $stateParams, $state, $timeout, gameService, ratingService, publisherService, genreService, toaster) {
     var action;
 
     $scope.Title = "Insert title here";
@@ -208,7 +212,9 @@ app.controller('insertGame', function ($scope, $stateParams, $state, gameService
             function (retorno) {
                 //$scope.gameAdded = retorno;
                 toaster.pop('success', "Create", "New game Created.");
-                $state.go('games');
+                $timeout(function () {
+                    $state.go('games');
+                }, 500);
             },
             function (erro) {
                 console.log(erro);

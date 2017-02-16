@@ -17,14 +17,16 @@
             </th>
         </tr>
 
-        <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName'] | filter: (activeFilter || '') && {Active: true}">
+        <tr ng-repeat="c in clients | orderBy:['!Active', 'FirstMidName'] | startFrom:(currentPage-1)*itemsPerPage | limitTo: itemsPerPage | filter: (activeFilter || '') && {Active: true}">
             <td>{{c.FirstMidName}} {{c.LastName}}</td>
             <td>{{c.BirthDate | date: 'dd/MM/yyyy'}}</td>
             <td>
-                <a class="btn-sm btn-block btn-default " ui-sref="client({id: c.ClientID})"> Edit <i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                <a class="btn-sm btn-block btn-danger " ng-show="c.Active" ng-click="Deactivate(c.ClientID)"> Deactivate <i class="fa fa-ban" aria-hidden="true"></i></a>
-                <a class="btn-sm btn-block btn-success " ng-show="!c.Active" ng-click="Activate(c.ClientID)"> Activate  <i class="fa fa-check" aria-hidden="true"></i></a>
+                <a class="btn btn-block btn-default " ui-sref="client({id: c.ClientID})"><i class="fa fa-info-circle" aria-hidden="true"></i> Edit </a>
+                <a class="btn btn-block btn-danger " ng-show="c.Active" ng-click="Deactivate(c.ClientID)"><i class="fa fa-ban" aria-hidden="true"></i> Deactivate </a>
+                <a class="btn btn-block btn-success " ng-show="!c.Active" ng-click="Activate(c.ClientID)"><i class="fa fa-check" aria-hidden="true"></i> Activate </a>
             </td>
         </tr>
     </table>
+    <ul uib-pagination boundary-links="true" total-items="totalItems" max-size="numPages" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    <p>showing {{totalItems < itemsPerPage ? totalItems : itemsPerPage}} of {{totalItems}} entries</p>
 </div>
