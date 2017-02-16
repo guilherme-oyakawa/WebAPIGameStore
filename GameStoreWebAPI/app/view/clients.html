@@ -1,8 +1,9 @@
-﻿<p>
-    <a ui-sref="newClient" class="btn btn-default">New Client</a>
-</p>
+﻿
 <div ng-app="myApp" ng-controller="listClients">
-    <label>Search active users only: <input type="checkbox" ng-model="activeFilter" checked /></label>
+    <p>
+        <a ui-sref="newClient" class="btn btn-default">New Client</a>
+        <label>Search active users only: <input type="checkbox" ng-model="activeFilter" checked /></label>
+    </p>
     <table class="table">
         <tr>
             <th>
