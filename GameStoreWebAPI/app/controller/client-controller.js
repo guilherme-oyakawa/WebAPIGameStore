@@ -36,6 +36,10 @@
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
 
+    filterGame = function (games, filter) {
+        return $filter('filter')($scope.games, $scope.search);
+    };
+
 });
 
 app.controller('getClient', function ($scope, clientService) {

@@ -47,7 +47,7 @@ app.controller('getRental', function ($scope, rentalService) {
     };
 });
 
-app.controller('updateRental', function ($scope, $stateParams, $state, $timeout, rentalService, copyService, clientService) {
+app.controller('updateRental', function ($scope, $stateParams, $state, toaster, $timeout, rentalService, copyService, clientService) {
     var action = {
         action: "getRental"
     };
@@ -68,7 +68,7 @@ app.controller('updateRental', function ($scope, $stateParams, $state, $timeout,
             console.log(erro);
         });
     
-    action = { action: 'getAvailableCopies' };
+    action = { action: 'getCopies' };
     copyService.query(action,
         function (retorno) {
             $scope.copies = retorno;
@@ -76,7 +76,7 @@ app.controller('updateRental', function ($scope, $stateParams, $state, $timeout,
         function (erro) {
             console.log(erro);
         });
-
+    
     action = { action: 'getActiveClients' };
     clientService.query(action,
         function (retorno) {
@@ -85,7 +85,7 @@ app.controller('updateRental', function ($scope, $stateParams, $state, $timeout,
         function (erro) {
             console.log(erro);
         });
-
+    
 
 
     $scope.updateRental = function () {
@@ -107,6 +107,7 @@ app.controller('updateRental', function ($scope, $stateParams, $state, $timeout,
         rentalService.update(action, rental,
             function (retorno) {
                 console.log(retorno);
+                toaster.pop('warning', "Edit", "Rental updated.");
             },
             function (erro) {
                 console.log(erro);
@@ -153,6 +154,7 @@ app.controller('insertRental', function ($scope, $state, $timeout, toaster, rent
         };
         rentalService.save(action, rental,
             function (retorno) {
+                toaster.pop('success', "New Rental", "New rental created.");
                 console.log(retorno);
             },
             function (erro) {

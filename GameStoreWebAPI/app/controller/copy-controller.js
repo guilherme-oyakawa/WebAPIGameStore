@@ -1,4 +1,4 @@
-﻿app.controller('listCopies', function ($scope, copyService) {
+﻿app.controller('listCopies', function ($scope, $state, $timeout, copyService) {
     var action = {
         action: "getCopies"
     };
@@ -12,6 +12,21 @@
         function (erro) {
             console.log(erro);
         });
+
+
+    $scope.deleteCopy = function (id) {
+        copyService.remove(action, { id: id },
+        function (retorno) {
+            $scope.copyDeleted = retorno;
+        },
+        function (erro) {
+            console.log(erro);
+        });
+        $timeout(function () {
+            $state.reload();
+        }, 500);
+    };
+
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
 

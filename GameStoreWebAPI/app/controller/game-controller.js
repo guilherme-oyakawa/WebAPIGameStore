@@ -65,9 +65,9 @@
     $scope.$watch('search', function () {
         $scope.filtered = filterGame($scope.games, $scope.search);
         if ($scope.filtered != null) {
-            console.log("Filtered Items", $scope.filtered);
+            //console.log("Filtered Items", $scope.filtered);
             $scope.totalItems = $scope.filtered.length;
-            console.log("Length", $scope.totalItems);
+            //console.log("Length", $scope.totalItems);
             $scope.numPages = Math.ceil($scope.totalItems / $scope.itemsPerPage);
         }
     }, true
