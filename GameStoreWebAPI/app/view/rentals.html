@@ -30,5 +30,5 @@
         </tr>
     </table>
     <ul uib-pagination boundary-links="true" total-items="totalItems" max-size="numPages" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-    <p>showing {{totalItems < itemsPerPage ? totalItems : itemsPerPage}} of {{totalItems}} entries</p>
+    <p>showing {{totalItems < itemsPerPage ? totalItems : (itemsPerPage*currentPage < totalItems) ? itemsPerPage : (itemsPerPage + (totalItems - itemsPerPage*currentPage))}} of {{totalItems}} results</p>
 </div>
