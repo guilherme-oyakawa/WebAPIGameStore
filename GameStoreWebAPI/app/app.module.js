@@ -7,6 +7,9 @@
         'angularModalService',
         'toaster',
         'ngAnimate',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngAria',
+        'ngMessages',
+        'ngMaterial'
     ]
 );
